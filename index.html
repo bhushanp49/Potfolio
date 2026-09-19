@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -6,563 +6,804 @@
   <title>MEP Engineer | Senior Mechanical Engineer Portfolio</title>
   <meta name="description" content="Senior MEP Mechanical Engineer with 10 years of experience in US and Indian construction projects. Expert in design review, QTO, clash detection, and code compliance." />
 
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Inter -->
+  <!-- DM Serif Display (editorial headings) + Inter (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            navy:    { DEFAULT: '#0A1628', 800: '#0D1F3C', 700: '#112952', 600: '#1A3A6B', 500: '#1E4080' },
-            steel:   { DEFAULT: '#374151', light: '#6B7280', lighter: '#9CA3AF', subtle: '#F3F4F6' },
-            orange:  { DEFAULT: '#E8521A', hover: '#C94510', light: '#FFF0E8' },
+            navy:  { DEFAULT: '#0A1628', 800: '#0D1F3C', 700: '#112952', 600: '#1A3A6B' },
+            mech:  { DEFAULT: '#1565C0', light: '#EBF3FF', dark: '#0D47A1' },
+            elec:  { DEFAULT: '#C84B00', light: '#FFF2E8', dark: '#A33A00' },
+            plumb: { DEFAULT: '#0277BD', light: '#E1F4FF', dark: '#01579B' },
+            orange: { DEFAULT: '#E8521A', hover: '#C94510' },
+            slate2: { DEFAULT: '#475569', light: '#94A3B8' },
           },
-          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
-          boxShadow: {
-            card: '0 4px 24px 0 rgba(10,22,40,0.10)',
-            'card-hover': '0 8px 40px 0 rgba(10,22,40,0.18)',
+          fontFamily: {
+            sans:    ['Inter', 'ui-sans-serif', 'system-ui'],
+            display: ['"DM Serif Display"', 'Georgia', 'serif'],
           },
+          borderRadius: { '2xl': '1rem', '3xl': '1.5rem', '4xl': '2rem' },
         },
       },
     };
   </script>
 
   <style>
-    /* ─── Global ─── */
     *, *::before, *::after { box-sizing: border-box; }
     html { font-family: 'Inter', sans-serif; }
-    body { background: #F8F9FB; color: #1F2937; }
+    body { background: #ffffff; color: #0A1628; overflow-x: hidden; }
 
-    /* ─── Navbar ─── */
-    #navbar {
-      transition: background 0.3s, box-shadow 0.3s;
-    }
+    /* ── Navbar ── */
+    #navbar { transition: background 0.4s, box-shadow 0.4s, color 0.4s; }
     #navbar.scrolled {
-      background: rgba(10, 22, 40, 0.98) !important;
-      box-shadow: 0 2px 16px rgba(0,0,0,0.25);
-      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.96) !important;
+      box-shadow: 0 1px 32px rgba(10,22,40,0.09);
+      backdrop-filter: blur(16px);
     }
+    #navbar.scrolled .nav-link { color: #374151; }
+    #navbar.scrolled .nav-link:hover { color: #0A1628; background: #F1F5F9; }
+    #navbar.scrolled .logo-text { color: #0A1628; }
+    #navbar.scrolled .logo-sub  { color: #94A3B8; }
 
-    /* ─── Hero ─── */
+    /* ── MEP tri-colour bar ── */
+    .mep-bar { display: flex; height: 3px; border-radius: 99px; overflow: hidden; }
+    .mep-bar span:nth-child(1) { background: #1565C0; flex: 1; }
+    .mep-bar span:nth-child(2) { background: #C84B00; flex: 1; }
+    .mep-bar span:nth-child(3) { background: #0277BD; flex: 1; }
+
+    /* ── Hero ── */
     .hero-bg {
-      background: linear-gradient(135deg, #0A1628 0%, #1A3A6B 55%, #0D2244 100%);
-      position: relative;
+      background: linear-gradient(140deg, #060D1C 0%, #0A1628 40%, #0F2848 70%, #091421 100%);
+    }
+    .hero-orb-1 {
+      background: radial-gradient(circle, rgba(21,101,192,0.28) 0%, transparent 65%);
+    }
+    .hero-orb-2 {
+      background: radial-gradient(circle, rgba(2,119,189,0.18) 0%, transparent 65%);
+    }
+
+    /* ── Gallery ── */
+    .gallery-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      user-select: none;
+    }
+    .gallery-track.dragging { cursor: grabbing; scroll-behavior: auto; }
+    .gallery-track::-webkit-scrollbar { height: 5px; }
+    .gallery-track::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 99px; }
+    .gallery-track::-webkit-scrollbar-thumb { background: #1565C0; border-radius: 99px; }
+
+    .gallery-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      border-radius: 1.5rem;
       overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(10,22,40,0.13);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .hero-bg::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 800px 500px at 70% 40%, rgba(232,82,26,0.08) 0%, transparent 70%),
-        radial-gradient(ellipse 600px 400px at 20% 80%, rgba(30,64,128,0.35) 0%, transparent 70%);
-      pointer-events: none;
+    @media (min-width: 640px)  { .gallery-card { flex: 0 0 380px; } }
+    @media (min-width: 1024px) { .gallery-card { flex: 0 0 440px; } }
+    .gallery-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(10,22,40,0.20); }
+    .gallery-card img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.6s ease; }
+    .gallery-card:hover img { transform: scale(1.06); }
+    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,9,20,0.82) 0%, rgba(6,9,20,0.15) 55%, transparent 100%); }
+    .gallery-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
+
+    /* ── Service cards ── */
+    .svc-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 2px 16px rgba(10,22,40,0.06), 0 1px 3px rgba(10,22,40,0.04);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
     }
-    .hero-grid {
-      background-image:
-        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      position: absolute; inset: 0;
-      pointer-events: none;
+    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,22,40,0.12); }
+
+    /* ── Icon blobs ── */
+    .icon-blob { width: 3rem; height: 3rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+    /* ── About image ── */
+    .about-img { border-radius: 2rem; overflow: hidden; }
+
+    /* ── Floating stat cards ── */
+    .float-stat {
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 1.25rem;
     }
 
-    /* ─── Cards ─── */
-    .service-card {
-      background: #fff;
-      border: 1px solid #E5E7EB;
-      border-top: 4px solid #E8521A;
-      transition: transform 0.25s, box-shadow 0.25s, border-top-color 0.25s;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 40px rgba(10,22,40,0.13);
-      border-top-color: #0A1628;
-    }
-
-    /* ─── Stats bar ─── */
-    .stat-item + .stat-item {
-      border-left: 1px solid rgba(255,255,255,0.15);
-    }
-
-    /* ─── Section divider ─── */
-    .section-label {
-      letter-spacing: 0.18em;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      color: #E8521A;
-      font-weight: 700;
-    }
-
-    /* ─── Form ─── */
-    .form-field {
-      background: #fff;
-      border: 1.5px solid #D1D5DB;
-      transition: border-color 0.2s, box-shadow 0.2s;
+    /* ── Contact form ── */
+    .form-input {
+      width: 100%;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 0.875rem;
+      background: #ffffff;
+      padding: 0.875rem 1.1rem;
+      font-size: 0.9rem;
+      color: #0A1628;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .form-field:focus {
-      border-color: #0A1628;
-      box-shadow: 0 0 0 3px rgba(10,22,40,0.08);
-    }
+    .form-input::placeholder { color: #94A3B8; }
+    .form-input:focus { border-color: #1565C0; box-shadow: 0 0 0 4px rgba(21,101,192,0.08); }
+    .form-input option { background: #fff; color: #0A1628; }
 
-    /* ─── Mobile menu ─── */
-    #mobile-menu { transition: max-height 0.3s ease, opacity 0.3s ease; max-height: 0; opacity: 0; overflow: hidden; }
-    #mobile-menu.open { max-height: 400px; opacity: 1; }
+    /* ── Gallery dot ── */
+    .gdot { width: 8px; height: 8px; border-radius: 99px; background: #CBD5E1; transition: all 0.3s ease; cursor: pointer; }
+    .gdot.active { background: #1565C0; width: 24px; }
 
-    /* ─── Animate on scroll ─── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    /* ── Mobile menu ── */
+    #mobile-menu { transition: max-height 0.35s ease, opacity 0.35s ease; max-height: 0; opacity: 0; overflow: hidden; }
+    #mobile-menu.open { max-height: 420px; opacity: 1; }
+
+    /* ── Scroll reveal ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ─── Footer ─── */
-    .footer-link { transition: color 0.2s; }
-    .footer-link:hover { color: #E8521A; }
+    /* ── Wave divider ── */
+    .wave { display: block; width: 100%; line-height: 0; }
 
-    /* ─── Scrollbar ─── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #F3F4F6; }
-    ::-webkit-scrollbar-thumb { background: #9CA3AF; border-radius: 99px; }
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #F1F5F9; }
+    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: #1565C0; }
+
+    /* ── Pulse rings on hero ── */
+    @keyframes ping-slow { 0%,100%{opacity:0;transform:scale(1)} 50%{opacity:.15;transform:scale(1.5)} }
+    .ping-slow { animation: ping-slow 4s ease-in-out infinite; }
+    .ping-slow-2 { animation: ping-slow 4s ease-in-out infinite 1.3s; }
+    .ping-slow-3 { animation: ping-slow 4s ease-in-out infinite 2.6s; }
   </style>
 </head>
 
 <body class="antialiased">
 
-  <!-- ════════════════════════════════════════════
+  <!-- ══════════════════════════════════
        NAVBAR
-  ════════════════════════════════════════════ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-navy">
+  ══════════════════════════════════ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 lg:h-18">
 
         <!-- Logo -->
-        <a href="#hero" class="flex items-center gap-2 group">
-          <div class="w-9 h-9 rounded-md bg-orange flex items-center justify-center flex-shrink-0 group-hover:bg-orange-hover transition-colors">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+        <a href="#hero" class="flex items-center gap-3 group">
+          <div class="w-9 h-9 rounded-xl bg-mech flex items-center justify-center shadow-sm flex-shrink-0 group-hover:bg-mech-dark transition-colors">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="10" width="20" height="4" rx="1" fill="currentColor" opacity="0.9"/>
+              <rect x="10" y="2" width="4" height="20" rx="1" fill="currentColor" opacity="0.7"/>
+              <path d="M12 7.5l-1.5 4h3l-1.5 5" stroke="#FFC107" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="text-white font-bold text-sm sm:text-base leading-tight">
-            <span class="text-orange">Bhushan Arvind Patil</span> &mdash; MEP Engineer
-          </span>
+          <div>
+            <span class="logo-text font-bold text-white text-sm block leading-tight transition-colors"><span class="text-orange">MEP</span> Engineer</span>
+            <div class="mep-bar w-12 mt-0.5"><span></span><span></span><span></span></div>
+          </div>
         </a>
 
-        <!-- Desktop Nav Links -->
+        <!-- Desktop Nav -->
         <div class="hidden md:flex items-center gap-1">
-          <a href="#about"    class="nav-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-md text-sm font-medium transition-colors">About</a>
-          <a href="#expertise" class="nav-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-md text-sm font-medium transition-colors">Expertise</a>
-          <a href="#services" class="nav-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
-          <a href="#contact"  class="ml-2 bg-orange hover:bg-orange-hover text-white px-5 py-2 rounded-md text-sm font-semibold transition-colors shadow-sm">Contact</a>
+          <a href="#about"     class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">About</a>
+          <a href="#gallery"   class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">Portfolio</a>
+          <a href="#expertise" class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">Services</a>
+          <a href="#contact"   class="ml-2 bg-orange hover:bg-orange-hover text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors shadow-sm">Contact</a>
         </div>
 
-        <!-- Mobile Hamburger -->
-        <button id="menu-btn" aria-label="Toggle menu" class="md:hidden text-gray-300 hover:text-white p-2 rounded-md transition-colors">
-          <svg id="icon-open"  class="w-6 h-6"           fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="icon-close" class="w-6 h-6 hidden"    fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        <!-- Hamburger -->
+        <button id="menu-btn" aria-label="Toggle menu" class="md:hidden text-white/80 hover:text-white p-2 rounded-xl transition-colors">
+          <svg id="icon-open"  class="w-6 h-6"        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-navy-800 border-t border-white/10 px-4">
-      <div class="py-3 flex flex-col gap-1">
-        <a href="#about"     class="mob-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-3 rounded-md text-sm font-medium transition-colors">About</a>
-        <a href="#expertise" class="mob-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-3 rounded-md text-sm font-medium transition-colors">Expertise</a>
-        <a href="#services"  class="mob-link text-gray-300 hover:text-white hover:bg-white/10 px-4 py-3 rounded-md text-sm font-medium transition-colors">Services</a>
-        <a href="#contact"   class="mob-link mt-1 bg-orange hover:bg-orange-hover text-white px-4 py-3 rounded-md text-sm font-semibold transition-colors text-center">Contact</a>
+    <div id="mobile-menu" class="md:hidden bg-navy/96 backdrop-blur-xl border-t border-white/10 px-4">
+      <div class="py-4 flex flex-col gap-1.5">
+        <a href="#about"     class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">About</a>
+        <a href="#gallery"   class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">Portfolio</a>
+        <a href="#expertise" class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">Services</a>
+        <a href="#contact"   class="mob-link mt-1 bg-orange text-white px-4 py-3 rounded-2xl text-sm font-semibold text-center transition-colors hover:bg-orange-hover">Contact</a>
       </div>
     </div>
   </nav>
 
 
-  <!-- ════════════════════════════════════════════
+  <!-- ══════════════════════════════════
        HERO
-  ════════════════════════════════════════════ -->
-  <section id="hero" class="hero-bg min-h-screen flex flex-col justify-center pt-16">
-    <div class="hero-grid"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+  ══════════════════════════════════ -->
+  <section id="hero" class="hero-bg relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden">
 
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 backdrop-blur-sm">
-        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-        Available for New Projects &mdash; US &amp; India
+    <!-- Orbs -->
+    <div class="hero-orb-1 absolute w-[600px] h-[600px] rounded-full top-1/2 right-[-100px] -translate-y-1/2 pointer-events-none"></div>
+    <div class="hero-orb-2 absolute w-[400px] h-[400px] rounded-full bottom-[-50px] left-[-80px] pointer-events-none"></div>
+
+    <!-- Decorative animated rings -->
+    <div class="absolute top-1/3 right-1/4 pointer-events-none hidden lg:block">
+      <div class="relative w-4 h-4">
+        <div class="absolute inset-0 rounded-full bg-mech ping-slow"></div>
+        <div class="absolute inset-0 rounded-full bg-mech ping-slow-2"></div>
+        <div class="absolute inset-0 rounded-full bg-mech opacity-60"></div>
       </div>
-
-      <!-- Headline -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-4xl">
-        Senior MEP Mechanical Engineer
-        <span class="block text-orange mt-1">10 Years Experience</span>
-      </h1>
-
-      <!-- Sub-headline -->
-      <p class="mt-6 text-base sm:text-lg lg:text-xl text-blue-100/80 max-w-2xl leading-relaxed font-light">
-        Bridging the gap between complex MEP design and flawless execution for <span class="text-white font-medium">US and Indian construction projects.</span>
-      </p>
-
-      <!-- CTA -->
-      <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <a href="#contact" class="inline-flex items-center gap-2 bg-orange hover:bg-orange-hover text-white font-bold px-8 py-4 rounded-lg text-base shadow-lg hover:shadow-xl transition-all duration-200 group">
-          Discuss Your Project
-          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
-        </a>
-        <a href="#about" class="inline-flex items-center gap-2 text-blue-100/80 hover:text-white text-sm font-medium transition-colors group">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-          Learn more
-        </a>
+    </div>
+    <div class="absolute bottom-1/3 right-1/3 pointer-events-none hidden lg:block">
+      <div class="relative w-3 h-3">
+        <div class="absolute inset-0 rounded-full bg-plumb ping-slow-2"></div>
+        <div class="absolute inset-0 rounded-full bg-plumb opacity-60"></div>
       </div>
+    </div>
+    <div class="absolute top-2/3 left-1/4 pointer-events-none hidden lg:block">
+      <div class="relative w-2.5 h-2.5">
+        <div class="absolute inset-0 rounded-full bg-elec ping-slow-3"></div>
+        <div class="absolute inset-0 rounded-full bg-elec opacity-60"></div>
+      </div>
+    </div>
 
-      <!-- Stats Bar -->
-      <div class="mt-16 lg:mt-20 inline-flex flex-wrap gap-0 divide-x divide-white/15 border border-white/15 rounded-xl overflow-hidden bg-white/5 backdrop-blur-sm">
-        <div class="stat-item flex flex-col items-center px-6 py-4">
-          <span class="text-2xl lg:text-3xl font-black text-white">10<span class="text-orange">+</span></span>
-          <span class="text-xs text-blue-200/70 mt-0.5 font-medium">Years Experience</span>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+      <div class="lg:grid lg:grid-cols-5 lg:gap-12 items-center">
+
+        <!-- Left text (3/5) -->
+        <div class="lg:col-span-3">
+          <!-- Status badge -->
+          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold px-4 py-2 rounded-full mb-8">
+            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
+            Available for New Projects &mdash; US &amp; India
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.75rem] leading-[1.08] text-white">
+            Senior MEP<br/>
+            <em class="text-orange not-italic">Mechanical</em><br/>
+            Engineer
+          </h1>
+
+          <p class="mt-6 text-blue-100/65 text-base lg:text-lg leading-relaxed max-w-md font-light">
+            10+ years of precision MEP solutions across US and Indian construction projects. From HVAC design to clash detection — delivered to code, on time.
+          </p>
+
+          <!-- M · E · P pills -->
+          <div class="mt-8 flex flex-wrap gap-2.5">
+            <span class="flex items-center gap-2 bg-mech/25 border border-mech/40 text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-mech flex-shrink-0"></span>Mechanical
+            </span>
+            <span class="flex items-center gap-2 bg-elec/25 border border-elec/40 text-orange-200 px-4 py-2 rounded-full text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-elec flex-shrink-0"></span>Electrical
+            </span>
+            <span class="flex items-center gap-2 bg-plumb/25 border border-plumb/40 text-cyan-200 px-4 py-2 rounded-full text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-plumb flex-shrink-0"></span>Plumbing
+            </span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="mt-10 flex flex-wrap gap-4">
+            <a href="#contact" class="inline-flex items-center gap-2 bg-orange hover:bg-orange-hover text-white font-semibold px-8 py-4 rounded-full text-sm shadow-lg hover:shadow-xl transition-all duration-200 group">
+              Start a Project
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+            </a>
+            <a href="#gallery" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/18 border border-white/20 text-white px-8 py-4 rounded-full text-sm font-medium transition-all duration-200">
+              View Portfolio
+            </a>
+          </div>
         </div>
-        <div class="stat-item flex flex-col items-center px-6 py-4">
-          <span class="text-2xl lg:text-3xl font-black text-white">2</span>
-          <span class="text-xs text-blue-200/70 mt-0.5 font-medium">Countries Served</span>
-        </div>
-        <div class="stat-item flex flex-col items-center px-6 py-4">
-          <span class="text-2xl lg:text-3xl font-black text-white">5</span>
-          <span class="text-xs text-blue-200/70 mt-0.5 font-medium">Core Specialties</span>
-        </div>
-        <div class="stat-item flex flex-col items-center px-6 py-4">
-          <span class="text-2xl lg:text-3xl font-black text-white">100<span class="text-orange">%</span></span>
-          <span class="text-xs text-blue-200/70 mt-0.5 font-medium">Code Compliant</span>
+
+        <!-- Right floating stats (2/5) -->
+        <div class="hidden lg:flex lg:col-span-2 flex-col gap-4 mt-12 lg:mt-0">
+
+          <div class="float-stat p-6">
+            <div class="flex items-end gap-2 mb-1">
+              <span class="font-display text-5xl text-white">10</span>
+              <span class="text-orange text-3xl font-bold mb-1">+</span>
+            </div>
+            <p class="text-blue-200/55 text-sm">Years MEP Experience</p>
+            <div class="mep-bar mt-3 w-full"><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="float-stat p-5 text-center">
+              <p class="font-display text-3xl text-white">US</p>
+              <p class="text-blue-200/45 text-xs mt-1.5">NFPA · ASHRAE<br/>IBC · IMC</p>
+            </div>
+            <div class="float-stat p-5 text-center">
+              <p class="font-display text-3xl text-white">IND</p>
+              <p class="text-blue-200/45 text-xs mt-1.5">NBC · IS<br/>BIS · SP-7</p>
+            </div>
+          </div>
+
+          <div class="float-stat p-5">
+            <div class="flex justify-around text-center">
+              <div>
+                <p class="font-display text-3xl text-white">5</p>
+                <p class="text-blue-200/45 text-xs mt-1">Disciplines</p>
+              </div>
+              <div class="w-px bg-white/10"></div>
+              <div>
+                <p class="font-display text-3xl text-white">100<span class="text-orange text-xl">%</span></p>
+                <p class="text-blue-200/45 text-xs mt-1">Compliant</p>
+              </div>
+              <div class="w-px bg-white/10"></div>
+              <div>
+                <p class="font-display text-3xl text-white">24h</p>
+                <p class="text-blue-200/45 text-xs mt-1">Response</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
+
+    <!-- Wave bottom -->
+    <svg class="wave absolute bottom-0 left-0" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 90V45C180 10 360 0 540 15C720 30 900 65 1080 70C1260 75 1380 55 1440 45V90H0Z" fill="#ffffff"/>
+    </svg>
   </section>
 
 
-  <!-- ════════════════════════════════════════════
-       ABOUT
-  ════════════════════════════════════════════ -->
-  <section id="about" class="bg-white py-20 lg:py-28">
+  <!-- ══════════════════════════════════
+       GALLERY — Horizontal image carousel
+  ══════════════════════════════════ -->
+  <section id="gallery" class="bg-white pt-20 lg:pt-28 pb-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-        <!-- Text -->
-        <div class="reveal">
-          <p class="section-label mb-3">About Me</p>
-          <h2 class="text-3xl lg:text-4xl font-extrabold text-navy leading-snug">
-            A decade of precision <br class="hidden lg:block"/>engineering expertise
+      <!-- Header row -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 reveal">
+        <div>
+          <div class="mep-bar w-14 mb-4"><span></span><span></span><span></span></div>
+          <h2 class="font-display text-3xl lg:text-4xl text-navy">MEP Expertise in Action</h2>
+          <p class="mt-2 text-slate-500 text-sm lg:text-base max-w-lg">
+            From towering skyscrapers to intricate mechanical rooms — a cross-discipline look at the work.
+          </p>
+        </div>
+        <!-- Prev / Next -->
+        <div class="flex items-center gap-3 flex-shrink-0">
+          <button id="gprev" aria-label="Previous image"
+            class="w-11 h-11 rounded-full border-2 border-gray-200 hover:border-mech hover:bg-mech/5 flex items-center justify-center text-gray-400 hover:text-mech transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+          </button>
+          <button id="gnext" aria-label="Next image"
+            class="w-11 h-11 rounded-full border-2 border-gray-200 hover:border-mech hover:bg-mech/5 flex items-center justify-center text-gray-400 hover:text-mech transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable track -->
+      <div id="gtrack" class="gallery-track pb-4 reveal">
+
+        <!-- Card 1 — High-rise MEP -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="High-rise building under construction with MEP systems" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 bg-mech/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Mechanical — M
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">High-Rise MEP Coordination</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">HVAC, ductwork & system coordination across multi-storey commercial towers.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 — HVAC -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="HVAC rooftop air handling units" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 bg-mech/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Mechanical — M
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">HVAC System Design</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">Rooftop AHUs, chillers, and full HVAC layout per ASHRAE 90.1 standards.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 — Plumbing / Fire -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="Construction site plumbing and fire protection installation" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(2,119,189,0.85)">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Plumbing — P
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">Plumbing &amp; Fire Protection</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">Domestic water, sanitary drainage &amp; NFPA-compliant fire suppression systems.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 — QTO / Estimation -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="Modern commercial building exterior" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(232,82,26,0.85)">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> QTO &amp; Estimation
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">Commercial Building QTO</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">Precise quantity takeoffs &amp; cost estimates for large-scale commercial developments.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 — Electrical -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="Electrical installation in commercial building" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(200,75,0,0.85)">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Electrical — E
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">Electrical Layout &amp; Review</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">Lighting design, power distribution &amp; panel scheduling for industrial facilities.</p>
+          </div>
+        </div>
+
+        <!-- Card 6 — Code Compliance -->
+        <div class="gallery-card">
+          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=880&h=600&q=80"
+               alt="Skyscraper reflecting blue sky" loading="lazy" />
+          <div class="gallery-overlay"></div>
+          <div class="gallery-content">
+            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(5,150,105,0.85)">
+              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Code Compliance
+            </span>
+            <h3 class="text-white font-semibold text-base leading-snug">Code Compliance Review</h3>
+            <p class="text-white/60 text-xs mt-1 leading-relaxed">NFPA, NBC &amp; IS code review to ensure full regulatory compliance before inspection.</p>
+          </div>
+        </div>
+
+      </div><!-- /gallery-track -->
+
+      <!-- Dots -->
+      <div class="flex justify-center items-center gap-2 mt-6 pb-20" id="gdots">
+        <button class="gdot active" data-idx="0" aria-label="Go to slide 1"></button>
+        <button class="gdot"        data-idx="1" aria-label="Go to slide 2"></button>
+        <button class="gdot"        data-idx="2" aria-label="Go to slide 3"></button>
+        <button class="gdot"        data-idx="3" aria-label="Go to slide 4"></button>
+        <button class="gdot"        data-idx="4" aria-label="Go to slide 5"></button>
+        <button class="gdot"        data-idx="5" aria-label="Go to slide 6"></button>
+      </div>
+    </div>
+
+    <!-- Wave to About -->
+    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0C360 80 1080 80 1440 0V80H0V0Z" fill="#F0F7FF"/>
+    </svg>
+  </section>
+
+
+  <!-- ══════════════════════════════════
+       ABOUT
+  ══════════════════════════════════ -->
+  <section id="about" class="bg-[#F0F7FF] py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+        <!-- Image col -->
+        <div class="reveal order-2 lg:order-1">
+          <div class="about-img relative shadow-2xl">
+            <img
+              src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=800&h=700&q=80"
+              alt="MEP engineer reviewing blueprints and construction plans"
+              class="w-full h-[420px] lg:h-[520px] object-cover"
+              loading="lazy"
+            />
+            <!-- Floating discipline badge -->
+            <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+              <p class="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wider">Core Disciplines</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="flex items-center gap-1.5 bg-mech/10 text-mech px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-mech"></span>HVAC Systems</span>
+                <span class="flex items-center gap-1.5 bg-plumb/10 text-plumb px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-plumb"></span>Fire Protection</span>
+                <span class="flex items-center gap-1.5 bg-elec/10 text-elec px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-elec"></span>Electrical Layout</span>
+                <span class="flex items-center gap-1.5 bg-mech/10 text-mech px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-mech"></span>Clash Detection</span>
+                <span class="flex items-center gap-1.5 bg-plumb/10 text-plumb px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-plumb"></span>Plumbing & Drainage</span>
+                <span class="flex items-center gap-1.5 bg-orange/10 text-orange px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-orange"></span>QTO / Estimation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text col -->
+        <div class="reveal order-1 lg:order-2">
+          <div class="mep-bar w-14 mb-5"><span></span><span></span><span></span></div>
+          <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">About Me</p>
+          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-snug">
+            A decade of precision<br/><em class="not-italic text-orange">engineering</em> expertise
           </h2>
-          <div class="mt-2 w-12 h-1 bg-orange rounded-full"></div>
-          <p class="mt-6 text-steel text-base lg:text-lg leading-relaxed">
+          <p class="mt-6 text-slate-600 text-base leading-relaxed">
             I am a professional Mechanical Engineer bringing <strong class="text-navy">10 years</strong> of cross-functional expertise in MEP construction and engineering. I help <strong class="text-navy">contractors, architects, and engineering firms</strong> streamline their construction processes through precise design review, proactive clash detection, and accurate estimation.
           </p>
 
           <!-- Highlights -->
-          <ul class="mt-8 space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="mt-1 w-5 h-5 flex-shrink-0 rounded-full bg-orange/10 flex items-center justify-center">
-                <svg class="w-3 h-3 text-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span class="text-steel text-sm">Cross-functional MEP experience across residential, commercial, and industrial projects</span>
+          <ul class="mt-8 space-y-4">
+            <li class="flex items-start gap-4">
+              <div class="icon-blob bg-mech/10 mt-0.5 flex-shrink-0">
+                <svg class="w-5 h-5 text-mech" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-navy text-sm">Cross-discipline MEP experience</p>
+                <p class="text-slate-500 text-sm mt-0.5">Across residential, commercial, and industrial projects in both the US and India.</p>
+              </div>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 w-5 h-5 flex-shrink-0 rounded-full bg-orange/10 flex items-center justify-center">
-                <svg class="w-3 h-3 text-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span class="text-steel text-sm">Deep familiarity with both US (NFPA, ASHRAE) and Indian (NBC, IS) standards</span>
+            <li class="flex items-start gap-4">
+              <div class="icon-blob bg-elec/10 mt-0.5 flex-shrink-0">
+                <svg class="w-5 h-5 text-elec" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-navy text-sm">US &amp; Indian code expertise</p>
+                <p class="text-slate-500 text-sm mt-0.5">Deep familiarity with NFPA, ASHRAE (US) and NBC, IS, BIS (India) standards.</p>
+              </div>
             </li>
-            <li class="flex items-start gap-3">
-              <span class="mt-1 w-5 h-5 flex-shrink-0 rounded-full bg-orange/10 flex items-center justify-center">
-                <svg class="w-3 h-3 text-orange" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 00-1.414 0L8 12.586 4.707 9.293a1 1 0 00-1.414 1.414l4 4a1 1 0 001.414 0l8-8a1 1 0 000-1.414z" clip-rule="evenodd"/></svg>
-              </span>
-              <span class="text-steel text-sm">Skilled at identifying and resolving constructability issues before they reach the field</span>
+            <li class="flex items-start gap-4">
+              <div class="icon-blob bg-plumb/10 mt-0.5 flex-shrink-0">
+                <svg class="w-5 h-5 text-plumb" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+              </div>
+              <div>
+                <p class="font-semibold text-navy text-sm">Field-ready constructability focus</p>
+                <p class="text-slate-500 text-sm mt-0.5">Identifying &amp; resolving issues before they reach the field, saving time and cost.</p>
+              </div>
             </li>
           </ul>
-        </div>
 
-        <!-- Visual Panel -->
-        <div class="reveal flex flex-col gap-4">
-          <!-- Expertise pills -->
-          <div class="bg-steel-subtle rounded-2xl p-6 border border-gray-200">
-            <p class="text-xs font-bold text-steel-light uppercase tracking-widest mb-4">Core Disciplines</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">HVAC Systems</span>
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">Plumbing & Drainage</span>
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">Fire Protection</span>
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">Electrical Layout</span>
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">Clash Detection</span>
-              <span class="px-3 py-1.5 bg-navy text-white text-xs font-semibold rounded-full">MEP Coordination</span>
-              <span class="px-3 py-1.5 bg-orange text-white text-xs font-semibold rounded-full">QTO / Estimation</span>
-              <span class="px-3 py-1.5 bg-orange text-white text-xs font-semibold rounded-full">NFPA Compliance</span>
-              <span class="px-3 py-1.5 bg-orange text-white text-xs font-semibold rounded-full">NBC / IS Codes</span>
+          <!-- Market badges -->
+          <div class="mt-8 grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-2xl p-4 shadow-soft">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-orange flex-shrink-0"></span>
+                <span class="text-xs font-bold text-orange uppercase tracking-wider">US Market</span>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed">NFPA · ASHRAE · IBC · IMC</p>
             </div>
-          </div>
-
-          <!-- Markets -->
-          <div class="grid grid-cols-2 gap-4">
-            <div class="bg-navy rounded-xl p-5 text-white flex flex-col gap-1">
-              <svg class="w-7 h-7 text-orange mb-1" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M3 10h18M12 3L3 10h18L12 3zM9 21V14h6v7"/></svg>
-              <span class="font-bold text-sm">US Market</span>
-              <span class="text-xs text-blue-200/70">NFPA &bull; ASHRAE &bull; IBC</span>
-            </div>
-            <div class="bg-navy-700 rounded-xl p-5 text-white flex flex-col gap-1">
-              <svg class="w-7 h-7 text-orange mb-1" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-              <span class="font-bold text-sm">India Market</span>
-              <span class="text-xs text-blue-200/70">NBC &bull; IS Codes &bull; BIS</span>
+            <div class="bg-white rounded-2xl p-4 shadow-soft">
+              <div class="flex items-center gap-2 mb-2">
+                <span class="w-2 h-2 rounded-full bg-mech flex-shrink-0"></span>
+                <span class="text-xs font-bold text-mech uppercase tracking-wider">India Market</span>
+              </div>
+              <p class="text-xs text-slate-500 leading-relaxed">NBC · IS Codes · BIS · SP-7</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
+
+    <!-- Wave to Services -->
+    <svg class="wave mt-20 lg:mt-28" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 80C360 0 1080 0 1440 80V80H0V80Z" fill="#ffffff"/>
+    </svg>
   </section>
 
 
-  <!-- ════════════════════════════════════════════
+  <!-- ══════════════════════════════════
        EXPERTISE & SERVICES
-  ════════════════════════════════════════════ -->
-  <section id="expertise" class="bg-steel-subtle py-20 lg:py-28">
+  ══════════════════════════════════ -->
+  <section id="expertise" class="bg-white py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div class="text-center reveal">
-        <p class="section-label mb-3">Expertise &amp; Services</p>
-        <h2 class="text-3xl lg:text-4xl font-extrabold text-navy">What I Bring to Your Project</h2>
-        <div class="mt-2 mx-auto w-12 h-1 bg-orange rounded-full"></div>
-        <p class="mt-4 text-steel max-w-xl mx-auto text-sm lg:text-base">
+      <div class="text-center reveal mb-14">
+        <div class="mep-bar w-14 mx-auto mb-5"><span></span><span></span><span></span></div>
+        <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">Scope of Services</p>
+        <h2 class="font-display text-3xl lg:text-4xl text-navy">What I Bring to Your Project</h2>
+        <p class="mt-4 text-slate-500 text-sm lg:text-base max-w-xl mx-auto leading-relaxed">
           From initial design through final inspection — precision-driven MEP solutions for every phase of construction.
         </p>
       </div>
 
-      <!-- 5 Service Cards -->
-      <div id="services" class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 5 Service cards -->
+      <div id="services" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <!-- Card 1 -->
-        <div class="service-card rounded-xl p-7 reveal">
-          <div class="w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/>
+        <div class="svc-card reveal">
+          <div class="icon-blob bg-mech/10 mb-5">
+            <svg class="w-6 h-6 text-mech" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="2" y="9" width="20" height="6" rx="1" stroke="currentColor"/>
+              <path d="M6 9V7M10 9V5M14 9V7M18 9V5" stroke="currentColor" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-navy mb-2">MEP Engineering &amp; Design</h3>
-          <p class="text-steel-light text-sm leading-relaxed">Full-cycle design and optimization for diverse building types, ensuring performance, efficiency, and integration across all MEP systems.</p>
+          <span class="text-xs font-semibold text-mech bg-mech/10 px-3 py-1 rounded-full">Mechanical · M</span>
+          <h3 class="mt-4 text-lg font-bold text-navy">MEP Engineering &amp; Design</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Full-cycle design and optimization for diverse building types, ensuring performance, efficiency, and integration across all MEP systems.</p>
         </div>
 
         <!-- Card 2 -->
-        <div class="service-card rounded-xl p-7 reveal">
-          <div class="w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="svc-card reveal">
+          <div class="icon-blob bg-elec/10 mb-5">
+            <svg class="w-6 h-6 text-elec" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-navy mb-2">Project Lifecycles</h3>
-          <p class="text-steel-light text-sm leading-relaxed">Comprehensive experience navigating standards in both the Indian and US construction sectors — from pre-design through project closeout.</p>
+          <span class="text-xs font-semibold text-elec bg-elec/10 px-3 py-1 rounded-full">Project Lifecycle</span>
+          <h3 class="mt-4 text-lg font-bold text-navy">Project Lifecycles</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Comprehensive experience navigating standards in both Indian and US construction sectors — from pre-design through project closeout.</p>
         </div>
 
         <!-- Card 3 -->
-        <div class="service-card rounded-xl p-7 reveal">
-          <div class="w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="svc-card reveal">
+          <div class="icon-blob bg-plumb/10 mb-5">
+            <svg class="w-6 h-6 text-plumb" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-navy mb-2">Drawing &amp; Documentation</h3>
-          <p class="text-steel-light text-sm leading-relaxed">Expert in drawing reviews, drawing overlays, and constructability reviews to identify and resolve issues prior to execution — saving costly field changes.</p>
+          <span class="text-xs font-semibold text-plumb bg-plumb/10 px-3 py-1 rounded-full">Plumbing · P</span>
+          <h3 class="mt-4 text-lg font-bold text-navy">Drawing &amp; Documentation</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Expert in drawing reviews, overlays, and constructability reviews to identify issues prior to execution — saving costly field changes.</p>
         </div>
 
         <!-- Card 4 -->
-        <div class="service-card rounded-xl p-7 reveal">
-          <div class="w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="svc-card reveal">
+          <div class="icon-blob bg-orange/10 mb-5">
+            <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-navy mb-2">Estimation</h3>
-          <p class="text-steel-light text-sm leading-relaxed">Highly accurate <strong class="text-navy">Quantity Takeoffs (QTO)</strong> to support project budgeting and procurement — minimizing cost overruns and material waste.</p>
+          <span class="text-xs font-semibold text-orange bg-orange/10 px-3 py-1 rounded-full">Estimation</span>
+          <h3 class="mt-4 text-lg font-bold text-navy">QTO &amp; Estimation</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Highly accurate <strong class="text-navy">Quantity Takeoffs (QTO)</strong> to support project budgeting and procurement — minimising cost overruns and material waste.</p>
         </div>
 
         <!-- Card 5 -->
-        <div class="service-card rounded-xl p-7 reveal sm:col-span-2 lg:col-span-1">
-          <div class="w-12 h-12 rounded-lg bg-navy/5 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-navy" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+        <div class="svc-card reveal sm:col-span-2 lg:col-span-1">
+          <div class="icon-blob bg-emerald-100 mb-5">
+            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
             </svg>
           </div>
-          <h3 class="text-lg font-bold text-navy mb-2">Code Compliance</h3>
-          <p class="text-steel-light text-sm leading-relaxed">Deep working knowledge of <strong class="text-navy">NFPA, NBC, and IS</strong> guidelines to ensure strict regulatory alignment and a smooth path through inspections and approvals.</p>
+          <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Compliance</span>
+          <h3 class="mt-4 text-lg font-bold text-navy">Code Compliance</h3>
+          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Deep working knowledge of <strong class="text-navy">NFPA, NBC, and IS</strong> guidelines to ensure strict regulatory alignment and smooth approvals.</p>
         </div>
 
-      </div><!-- /grid -->
+      </div>
 
-      <!-- Closing Pitch -->
-      <div class="mt-14 reveal">
-        <div class="relative bg-navy rounded-2xl p-8 lg:p-12 overflow-hidden">
-          <div class="absolute inset-0 bg-gradient-to-br from-navy-700/40 to-transparent pointer-events-none"></div>
-          <div class="relative flex flex-col lg:flex-row items-start lg:items-center gap-6">
-            <div class="w-14 h-14 rounded-xl bg-orange/20 flex-shrink-0 flex items-center justify-center">
-              <svg class="w-7 h-7 text-orange" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z"/>
-              </svg>
+      <!-- Quote banner -->
+      <div class="mt-16 reveal">
+        <div class="relative bg-navy rounded-3xl px-8 py-10 lg:px-14 lg:py-12 overflow-hidden">
+          <!-- Gradient orb -->
+          <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-mech/25 blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-plumb/20 blur-3xl pointer-events-none"></div>
+          <div class="relative flex flex-col lg:flex-row items-start lg:items-center gap-8">
+            <div class="w-16 h-16 rounded-2xl bg-orange/20 flex-shrink-0 flex items-center justify-center">
+              <svg class="w-8 h-8 text-orange" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
             </div>
-            <blockquote class="text-white text-base lg:text-lg font-medium leading-relaxed max-w-3xl">
-              "I pride myself on delivering highly accurate, buildable, and compliant engineering solutions that <span class="text-orange">drive project success</span> from the drafting table to the construction site."
+            <blockquote class="text-white text-base lg:text-xl font-light leading-relaxed max-w-3xl">
+              "I pride myself on delivering highly accurate, buildable, and compliant engineering solutions that
+              <span class="text-orange font-medium">drive project success</span> from the drafting table to the construction site."
             </blockquote>
           </div>
         </div>
       </div>
 
     </div>
+
+    <!-- Wave to Contact -->
+    <svg class="wave mt-20 lg:mt-28" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0C360 80 1080 80 1440 0V80H0V0Z" fill="#F0F7FF"/>
+    </svg>
   </section>
 
 
-  <!-- ════════════════════════════════════════════
-       CONTACT FORM
-  ════════════════════════════════════════════ -->
-  <section id="contact" class="bg-white py-20 lg:py-28">
+  <!-- ══════════════════════════════════
+       CONTACT
+  ══════════════════════════════════ -->
+  <section id="contact" class="bg-[#F0F7FF] py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
 
-        <!-- Left info -->
+        <!-- Left -->
         <div class="lg:col-span-2 reveal">
-          <p class="section-label mb-3">Contact</p>
-          <h2 class="text-3xl lg:text-4xl font-extrabold text-navy leading-snug">
-            Let's Build Something Precise Together
+          <div class="mep-bar w-14 mb-5"><span></span><span></span><span></span></div>
+          <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">Get In Touch</p>
+          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-snug">
+            Let's Build Something<br/><em class="not-italic text-orange">Precise</em> Together
           </h2>
-          <div class="mt-2 w-12 h-1 bg-orange rounded-full"></div>
-          <p class="mt-6 text-steel text-sm lg:text-base leading-relaxed">
-            Share your project requirements and I'll get back to you within <strong class="text-navy">24 hours</strong> with a tailored approach.
+          <p class="mt-5 text-slate-600 text-sm lg:text-base leading-relaxed">
+            Share your project requirements and I'll respond within <strong class="text-navy">24 hours</strong> with a tailored approach.
           </p>
 
-          <!-- Quick info blocks -->
+          <!-- Info cards -->
           <div class="mt-8 space-y-4">
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-steel-subtle border border-gray-200">
-              <div class="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.959 8.959 0 00.284 2.253"/></svg>
+            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
+              <div class="icon-blob bg-mech/10 flex-shrink-0">
+                <svg class="w-5 h-5 text-mech" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.959 8.959 0 00.284 2.253"/></svg>
               </div>
               <div>
                 <p class="font-semibold text-navy text-sm">Project Locations</p>
-                <p class="text-steel-light text-xs mt-0.5">United States &bull; India &bull; International</p>
+                <p class="text-slate-500 text-xs mt-0.5">United States · India · International</p>
               </div>
             </div>
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-steel-subtle border border-gray-200">
-              <div class="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
+              <div class="icon-blob bg-elec/10 flex-shrink-0">
+                <svg class="w-5 h-5 text-elec" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
               </div>
               <div>
                 <p class="font-semibold text-navy text-sm">Response Time</p>
-                <p class="text-steel-light text-xs mt-0.5">Typically within 24 hours</p>
+                <p class="text-slate-500 text-xs mt-0.5">Typically within 24 hours</p>
               </div>
             </div>
-            <div class="flex items-start gap-4 p-4 rounded-xl bg-steel-subtle border border-gray-200">
-              <div class="w-10 h-10 rounded-lg bg-navy flex items-center justify-center flex-shrink-0">
-                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
+            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
+              <div class="icon-blob bg-plumb/10 flex-shrink-0">
+                <svg class="w-5 h-5 text-plumb" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
               </div>
               <div>
                 <p class="font-semibold text-navy text-sm">Available For</p>
-                <p class="text-steel-light text-xs mt-0.5">Freelance &bull; Contract &bull; Consulting</p>
+                <p class="text-slate-500 text-xs mt-0.5">Freelance · Contract · Consulting</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Form -->
+        <!-- Right — form -->
         <div class="lg:col-span-3 reveal">
-          <div class="bg-steel-subtle border border-gray-200 rounded-2xl p-6 lg:p-8 shadow-card">
-
-            <!-- ⚠️  IMPORTANT: Replace YOUR_EMAIL@example.com below with your actual email -->
-            <form
-              action="https://formsubmit.co/bhushanp49@gmail.com"
-              method="POST"
-              id="contact-form"
-              class="space-y-5"
-            >
-              <!-- FormSubmit hidden settings -->
+          <div class="bg-white rounded-3xl p-7 lg:p-10 shadow-xl shadow-navy/8">
+            <!-- ⚠️ Replace YOUR_EMAIL@example.com with your actual email -->
+            <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" id="contact-form" class="space-y-5">
               <input type="hidden" name="_captcha"  value="false" />
-              <input type="hidden" name="_next"     value="https://yourusername.github.io/thank-you.html" />
+              <input type="hidden" name="_next"     value="https://bhushanp49.github.io/Potfolio/thank-you.html" />
               <input type="hidden" name="_subject"  value="New Project Inquiry from Portfolio" />
               <input type="hidden" name="_template" value="table" />
 
-              <!-- Name & Email -->
-              <div class="grid sm:grid-cols-2 gap-4">
+              <div class="grid sm:grid-cols-2 gap-5">
                 <div>
-                  <label for="name" class="block text-xs font-semibold text-navy mb-1.5">Full Name <span class="text-orange">*</span></label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="John Smith"
-                    class="form-field w-full rounded-lg px-4 py-3 text-sm text-navy placeholder-gray-400"
-                  />
+                  <label for="name"  class="block text-xs font-semibold text-navy mb-2">Full Name <span class="text-orange">*</span></label>
+                  <input type="text"  id="name"  name="name"  required placeholder="John Smith"       class="form-input" />
                 </div>
                 <div>
-                  <label for="email" class="block text-xs font-semibold text-navy mb-1.5">Email Address <span class="text-orange">*</span></label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="john@company.com"
-                    class="form-field w-full rounded-lg px-4 py-3 text-sm text-navy placeholder-gray-400"
-                  />
+                  <label for="email" class="block text-xs font-semibold text-navy mb-2">Email Address <span class="text-orange">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="john@company.com" class="form-input" />
                 </div>
               </div>
 
-              <!-- Project Location -->
               <div>
-                <label for="location" class="block text-xs font-semibold text-navy mb-1.5">Project Location <span class="text-orange">*</span></label>
-                <select
-                  id="location"
-                  name="project_location"
-                  required
-                  class="form-field w-full rounded-lg px-4 py-3 text-sm text-navy bg-white appearance-none cursor-pointer"
-                >
-                  <option value="" disabled selected>Select a location…</option>
+                <label for="location" class="block text-xs font-semibold text-navy mb-2">Project Location <span class="text-orange">*</span></label>
+                <select id="location" name="project_location" required class="form-input">
+                  <option value="" disabled selected>Select location…</option>
                   <option value="USA">USA</option>
                   <option value="India">India</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
 
-              <!-- Service Needed -->
               <div>
-                <label for="service" class="block text-xs font-semibold text-navy mb-1.5">Service Needed <span class="text-orange">*</span></label>
-                <select
-                  id="service"
-                  name="service_needed"
-                  required
-                  class="form-field w-full rounded-lg px-4 py-3 text-sm text-navy bg-white appearance-none cursor-pointer"
-                >
-                  <option value="" disabled selected>Select a service…</option>
+                <label for="service" class="block text-xs font-semibold text-navy mb-2">Service Needed <span class="text-orange">*</span></label>
+                <select id="service" name="service_needed" required class="form-input">
+                  <option value="" disabled selected>Select service…</option>
                   <option value="Design Review">Design Review</option>
                   <option value="QTO">QTO (Quantity Takeoff)</option>
                   <option value="Constructability Review">Constructability Review</option>
+                  <option value="MEP Engineering">MEP Engineering &amp; Design</option>
+                  <option value="Code Compliance">Code Compliance</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
 
-              <!-- Project Details -->
               <div>
-                <label for="details" class="block text-xs font-semibold text-navy mb-1.5">Project Details / Queries <span class="text-orange">*</span></label>
-                <textarea
-                  id="details"
-                  name="project_details"
-                  required
-                  rows="5"
+                <label for="details" class="block text-xs font-semibold text-navy mb-2">Project Details <span class="text-orange">*</span></label>
+                <textarea id="details" name="project_details" required rows="5"
                   placeholder="Describe your project scope, timeline, and any specific requirements…"
-                  class="form-field w-full rounded-lg px-4 py-3 text-sm text-navy placeholder-gray-400 resize-none"
-                ></textarea>
+                  class="form-input resize-none"></textarea>
               </div>
 
-              <!-- Submit -->
-              <button
-                type="submit"
-                class="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-700 text-white font-bold py-3.5 px-8 rounded-lg text-sm transition-all duration-200 hover:shadow-lg group"
-              >
+              <button type="submit"
+                class="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-2xl text-sm transition-all duration-200 hover:shadow-lg group">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-                Send Requirements
+                Send Inquiry
               </button>
-
-              <p class="text-center text-xs text-steel-lighter mt-2">
-                Your information is kept private and never shared.
-              </p>
+              <p class="text-center text-xs text-slate-400 mt-1">Your information is kept private and never shared.</p>
             </form>
           </div>
         </div>
@@ -572,35 +813,34 @@
   </section>
 
 
-  <!-- ════════════════════════════════════════════
+  <!-- ══════════════════════════════════
        FOOTER
-  ════════════════════════════════════════════ -->
+  ══════════════════════════════════ -->
   <footer class="bg-navy py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
 
-        <!-- Logo in footer -->
-        <div class="flex items-center gap-2">
-          <div class="w-8 h-8 rounded-md bg-orange flex items-center justify-center">
-            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-mech/20 border border-mech/30 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="10" width="20" height="4" rx="1" fill="currentColor" opacity="0.8"/>
+              <rect x="10" y="2" width="4" height="20" rx="1" fill="currentColor" opacity="0.6"/>
+              <path d="M12 7.5l-1.5 4h3l-1.5 5" stroke="#FFC107" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="text-white/70 text-sm">&copy; 2026 <span class="text-white font-semibold">[Your Name]</span>. All rights reserved.</span>
+          <span class="text-white/50 text-sm font-medium">&copy; 2026 <span class="text-white font-semibold">[Your Name]</span>. All rights reserved.</span>
         </div>
 
-        <!-- Social Links -->
+        <!-- Social -->
         <div class="flex items-center gap-3">
-          <span class="text-white/40 text-xs uppercase tracking-widest mr-1">Connect</span>
-
-          <!-- LinkedIn -->
-          <a href="#" aria-label="LinkedIn" class="footer-link flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-xs font-medium px-4 py-2 rounded-lg transition-all">
+          <a href="#" aria-label="LinkedIn"
+            class="flex items-center gap-2 bg-white/8 hover:bg-white/16 border border-white/12 hover:border-orange/40 text-white/60 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
           </a>
-
-          <!-- Upwork -->
-          <a href="#" aria-label="Upwork" class="footer-link flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white/80 hover:text-white text-xs font-medium px-4 py-2 rounded-lg transition-all">
+          <a href="#" aria-label="Upwork"
+            class="flex items-center gap-2 bg-white/8 hover:bg-white/16 border border-white/12 hover:border-orange/40 text-white/60 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
             Upwork
           </a>
@@ -611,73 +851,140 @@
   </footer>
 
 
-  <!-- ════════════════════════════════════════════
+  <!-- ══════════════════════════════════
        JAVASCRIPT
-  ════════════════════════════════════════════ -->
+  ══════════════════════════════════ -->
   <script>
-    /* ── Navbar scroll effect ── */
+    /* ── Navbar scroll ── */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 10);
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
     }, { passive: true });
 
-    /* ── Mobile Menu Toggle ── */
-    const menuBtn   = document.getElementById('menu-btn');
+    /* ── Mobile menu ── */
+    const menuBtn    = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen  = document.getElementById('icon-open');
-    const iconClose = document.getElementById('icon-close');
-
+    const iconOpen   = document.getElementById('icon-open');
+    const iconClose  = document.getElementById('icon-close');
     menuBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      iconOpen.classList.toggle('hidden', isOpen);
-      iconClose.classList.toggle('hidden', !isOpen);
+      const open = mobileMenu.classList.toggle('open');
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
     });
+    document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }));
 
-    // Close mobile menu when a link is clicked
-    document.querySelectorAll('.mob-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        iconOpen.classList.remove('hidden');
-        iconClose.classList.add('hidden');
+    /* ═══ GALLERY CAROUSEL ═══ */
+    const track  = document.getElementById('gtrack');
+    const dots   = document.querySelectorAll('.gdot');
+    const btnP   = document.getElementById('gprev');
+    const btnN   = document.getElementById('gnext');
+    const cards  = track.querySelectorAll('.gallery-card');
+    let   current = 0;
+    let   timer;
+    let   isDragging = false;
+    let   dragStart  = 0;
+    let   dragScrollStart = 0;
+
+    function cardW() {
+      const c = cards[0];
+      return c ? c.offsetWidth + 20 : 460; /* width + gap */
+    }
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, cards.length - 1));
+      track.scrollTo({ left: current * cardW(), behavior: 'smooth' });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === current);
       });
+    }
+    function nextSlide() {
+      goTo(current >= cards.length - 1 ? 0 : current + 1);
+    }
+    function startTimer() { timer = setInterval(nextSlide, 4000); }
+    function stopTimer()  { clearInterval(timer); }
+
+    btnN.addEventListener('click', () => { stopTimer(); goTo(current + 1); startTimer(); });
+    btnP.addEventListener('click', () => { stopTimer(); goTo(current - 1); startTimer(); });
+    dots.forEach(d => d.addEventListener('click', () => {
+      stopTimer(); goTo(+d.dataset.idx); startTimer();
+    }));
+
+    /* Pause on hover */
+    track.addEventListener('mouseenter', stopTimer);
+    track.addEventListener('mouseleave', startTimer);
+
+    /* Drag to scroll */
+    track.addEventListener('mousedown', e => {
+      isDragging    = true;
+      dragStart     = e.pageX;
+      dragScrollStart = track.scrollLeft;
+      track.classList.add('dragging');
+    });
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      const dx = e.pageX - dragStart;
+      track.scrollLeft = dragScrollStart - dx;
+    });
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.classList.remove('dragging');
+      current = Math.round(track.scrollLeft / cardW());
+      goTo(current);
+      startTimer();
     });
 
-    /* ── Scroll-reveal (Intersection Observer) ── */
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer  = new IntersectionObserver((entries) => {
-      entries.forEach((entry, idx) => {
-        if (entry.isIntersecting) {
-          // Stagger cards inside the same parent
-          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal:not(.visible)'));
-          const delay    = siblings.indexOf(entry.target) * 80;
-          setTimeout(() => entry.target.classList.add('visible'), delay);
-          observer.unobserve(entry.target);
+    /* Update dot on manual scroll (touch) */
+    track.addEventListener('scrollend', () => {
+      current = Math.round(track.scrollLeft / cardW());
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    });
+    track.addEventListener('touchend', () => {
+      setTimeout(() => {
+        current = Math.round(track.scrollLeft / cardW());
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        startTimer();
+      }, 300);
+    });
+    track.addEventListener('touchstart', stopTimer, { passive: true });
+
+    startTimer();
+
+    /* ── Scroll reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const ro = new IntersectionObserver(entries => {
+      entries.forEach((e, idx) => {
+        if (e.isIntersecting) {
+          const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal:not(.visible)'));
+          const delay = siblings.indexOf(e.target) * 90;
+          setTimeout(() => e.target.classList.add('visible'), delay);
+          ro.unobserve(e.target);
         }
       });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => observer.observe(el));
+    }, { threshold: 0.10 });
+    reveals.forEach(el => ro.observe(el));
 
-    /* ── Active nav link highlight ── */
-    const sections   = document.querySelectorAll('section[id]');
-    const navLinks   = document.querySelectorAll('.nav-link');
-    const ioNav = new IntersectionObserver((entries) => {
+    /* ── Active nav on scroll ── */
+    const sects  = document.querySelectorAll('section[id]');
+    const nlinks = document.querySelectorAll('.nav-link');
+    const ioNav  = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            const isActive = link.getAttribute('href') === `#${id}` ||
-                             (id === 'expertise' && link.getAttribute('href') === '#expertise') ||
-                             (id === 'services'  && link.getAttribute('href') === '#expertise');
-            link.classList.toggle('text-white', isActive);
-            link.classList.toggle('bg-white/10', isActive);
-            link.classList.toggle('text-gray-300', !isActive);
+          const id = entry.target.id;
+          nlinks.forEach(l => {
+            const match = l.getAttribute('href') === `#${id}` ||
+                          (id === 'expertise' && l.getAttribute('href') === '#expertise');
+            l.classList.toggle('text-white', match);
+            l.classList.toggle('bg-white/12', match);
           });
         }
       });
     }, { rootMargin: '-40% 0px -50% 0px' });
-    sections.forEach(s => ioNav.observe(s));
+    sects.forEach(s => ioNav.observe(s));
   </script>
 
 </body>
 </html>
-

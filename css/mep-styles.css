@@ -1,0 +1,335 @@
+/* ==========================================================================
+   BHUSHAN ARVIND PATIL - SENIOR MEP PROJECT ENGINEER PORTFOLIO
+   Theme: MEP Technical Blueprint (Red, Green, Yellow, Blue, Black)
+   ========================================================================== */
+
+:root {
+  --mep-black: #050811;
+  --mep-black-deep: #020408;
+  --mep-surface: #0a1120;
+  --mep-card: #0e172a;
+  --mep-card-hover: #132038;
+  --mep-border: #1e293b;
+  --mep-border-light: rgba(255, 255, 255, 0.08);
+
+  /* Primary MEP Discipline Color Coding */
+  --mep-red: #ef4444;       /* Fire Protection & Life Safety / NFPA */
+  --mep-red-glow: rgba(239, 68, 68, 0.35);
+  --mep-red-bg: rgba(239, 68, 68, 0.1);
+
+  --mep-green: #10b981;     /* Plumbing, PHE, Drainage & IGBC AP */
+  --mep-green-glow: rgba(16, 185, 129, 0.35);
+  --mep-green-bg: rgba(16, 185, 129, 0.1);
+
+  --mep-yellow: #f59e0b;    /* Electrical Systems, Power, Substation */
+  --mep-yellow-glow: rgba(245, 158, 11, 0.35);
+  --mep-yellow-bg: rgba(245, 158, 11, 0.1);
+
+  --mep-blue: #1e6bfb;      /* Mechanical HVAC, Hydronics, Chilled Water */
+  --mep-blue-glow: rgba(30, 107, 251, 0.35);
+  --mep-blue-bg: rgba(30, 107, 251, 0.1);
+
+  --mep-cyan: #06b6d4;      /* Domestic Cold Water & Instrumentation */
+  --mep-text-main: #f8fafc;
+  --mep-text-muted: #94a3b8;
+  --mep-text-dim: #64748b;
+}
+
+/* Base resets & fallback styles */
+html {
+  scroll-behavior: smooth;
+  background-color: #050811;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #050811;
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom CAD Blueprint Grid */
+.bg-blueprint-dark {
+  background-color: var(--mep-black);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(30, 107, 251, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(245, 158, 11, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+}
+
+/* Finer CAD Crosshair Grid */
+.bg-cad-cross {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Glowing Discipline Badges & Borders */
+.border-mep-red { border-color: var(--mep-red); }
+.border-mep-green { border-color: var(--mep-green); }
+.border-mep-yellow { border-color: var(--mep-yellow); }
+.border-mep-blue { border-color: var(--mep-blue); }
+
+.glow-red { box-shadow: 0 0 20px var(--mep-red-glow); }
+.glow-green { box-shadow: 0 0 20px var(--mep-green-glow); }
+.glow-yellow { box-shadow: 0 0 20px var(--mep-yellow-glow); }
+.glow-blue { box-shadow: 0 0 20px var(--mep-blue-glow); }
+
+/* Multi-Discipline MEP Ribbon */
+.mep-multi-ribbon {
+  display: flex;
+  height: 3px;
+  width: 100%;
+  overflow: hidden;
+}
+.mep-multi-ribbon .seg-blue { background: var(--mep-blue); flex: 1; }
+.mep-multi-ribbon .seg-yellow { background: var(--mep-yellow); flex: 1; }
+.mep-multi-ribbon .seg-green { background: var(--mep-green); flex: 1; }
+.mep-multi-ribbon .seg-red { background: var(--mep-red); flex: 1; }
+
+/* Flowing Conduit & Pipe Animations */
+@keyframes conduitRun {
+  from { stroke-dashoffset: 400; }
+  to { stroke-dashoffset: 0; }
+}
+
+.anim-conduit-blue {
+  stroke: var(--mep-blue);
+  stroke-dasharray: 14 10;
+  animation: conduitRun 16s linear infinite;
+}
+.anim-conduit-yellow {
+  stroke: var(--mep-yellow);
+  stroke-dasharray: 10 8;
+  animation: conduitRun 12s linear infinite reverse;
+}
+.anim-conduit-green {
+  stroke: var(--mep-green);
+  stroke-dasharray: 12 12;
+  animation: conduitRun 20s linear infinite;
+}
+.anim-conduit-red {
+  stroke: var(--mep-red);
+  stroke-dasharray: 16 8;
+  animation: conduitRun 14s linear infinite;
+}
+
+/* Radar Scan Animation */
+@keyframes radarSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.radar-scanner {
+  animation: radarSweep 6s linear infinite;
+  transform-origin: center center;
+}
+
+/* Technical HUD Borders */
+.hud-corner-box {
+  position: relative;
+}
+.hud-corner-box::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid var(--mep-blue);
+  border-left: 2px solid var(--mep-blue);
+  pointer-events: none;
+}
+.hud-corner-box::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid var(--mep-blue);
+  border-right: 2px solid var(--mep-blue);
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--mep-black-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mep-blue);
+}
+
+/* Card Hover Elevation */
+.mep-card-interactive {
+  background: var(--mep-card);
+  border: 1px solid var(--mep-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mep-card-interactive:hover {
+  background: var(--mep-card-hover);
+  border-color: rgba(30, 107, 251, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Interactive Filter Active State */
+.filter-btn.active-all {
+  background: #1e293b;
+  color: #ffffff;
+  border-color: #64748b;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+.filter-btn.active-blue {
+  background: rgba(30, 107, 251, 0.2);
+  color: #60a5fa;
+  border-color: var(--mep-blue);
+  box-shadow: 0 0 15px var(--mep-blue-glow);
+}
+.filter-btn.active-yellow {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fcd34d;
+  border-color: var(--mep-yellow);
+  box-shadow: 0 0 15px var(--mep-yellow-glow);
+}
+.filter-btn.active-green {
+  background: rgba(16, 185, 129, 0.2);
+  color: #6ee7b7;
+  border-color: var(--mep-green);
+  box-shadow: 0 0 15px var(--mep-green-glow);
+}
+.filter-btn.active-red {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+  border-color: var(--mep-red);
+  box-shadow: 0 0 15px var(--mep-red-glow);
+}
+
+/* Pulse Beacon */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.5; }
+}
+.pulse-beacon {
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+/* BIM Clash Sandbox specific styling */
+.clash-indicator {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.85);
+  border: 2px solid #ffffff;
+  animation: pulseDot 1s infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 20;
+}
+
+/* Scroll margin offset for sticky headers */
+section {
+  scroll-margin-top: 7.5rem;
+}
+
+/* Print Resume Stylesheet */
+@media print {
+  /* Hide all interactive website chrome */
+  body > header,
+  body > section,
+  body > footer,
+  #project-modal,
+  #mep-toast,
+  .no-print,
+  #bim-sandbox,
+  #boq-calculator,
+  #contact,
+  #hero-cad-canvas {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Printable Resume Document Format */
+  .print-resume-container {
+    display: block !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 15mm !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .print-resume-container h1 {
+    font-size: 18pt !important;
+    color: #0f172a !important;
+    margin-bottom: 2px !important;
+  }
+
+  .print-resume-container .contact-bar {
+    font-size: 8.5pt !important;
+    color: #334155 !important;
+    border-bottom: 1.5px solid #0f172a !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .print-resume-container section {
+    margin-bottom: 10px !important;
+    scroll-margin-top: 0 !important;
+    page-break-inside: avoid;
+  }
+
+  .print-resume-container h2 {
+    font-size: 10.5pt !important;
+    font-weight: 700 !important;
+    border-bottom: 1px solid #cbd5e1 !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 5px !important;
+    color: #1e3a8a !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .print-resume-container ul {
+    margin: 0 !important;
+    padding-left: 15px !important;
+  }
+
+  .print-resume-container li {
+    font-size: 8.5pt !important;
+    line-height: 1.35 !important;
+    margin-bottom: 2px !important;
+    color: #1f2937 !important;
+  }
+
+  .print-badge {
+    border: 1px solid #94a3b8 !important;
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+  }
+}

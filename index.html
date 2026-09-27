@@ -3,808 +3,839 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MEP Engineer | Senior Mechanical Engineer Portfolio</title>
-  <meta name="description" content="Senior MEP Mechanical Engineer with 10 years of experience in US and Indian construction projects. Expert in design review, QTO, clash detection, and code compliance." />
+  <title>Bhushan Arvind Patil | Senior MEP Project Engineer | Chartered Engineer & IGBC-AP</title>
+  <meta name="description" content="Portfolio of Bhushan Arvind Patil - Chartered Mechanical Engineer (IEI) and IGBC-AP with 10+ years experience leading mission-critical US data centers (Google, Apple) and INR 4,256 Cr township MEP projects." />
+  <meta name="keywords" content="Bhushan Arvind Patil, Senior MEP Engineer, Mechanical Engineer, IGBC AP, Chartered Engineer, Turner International, Blue Star, Sandeep Shikre, BIM 360, Revit, AutoCAD, HVAC, Plumbing, Fire Fighting, Electrical" />
+  <meta name="author" content="Bhushan Arvind Patil" />
 
+  <!-- Open Graph Meta for Social & GitHub Sharing -->
+  <meta property="og:title" content="Bhushan Arvind Patil | Senior MEP Project Engineer" />
+  <meta property="og:description" content="Chartered Mechanical Engineer with 10+ years managing US and Indian MEP portfolios, mission-critical data centers, and multi-billion-rupee developments." />
+  <meta property="og:type" content="website" />
+
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- DM Serif Display (editorial headings) + Inter (body) -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Tailwind Custom Colors Configuration -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            navy:  { DEFAULT: '#0A1628', 800: '#0D1F3C', 700: '#112952', 600: '#1A3A6B' },
-            mech:  { DEFAULT: '#1565C0', light: '#EBF3FF', dark: '#0D47A1' },
-            elec:  { DEFAULT: '#C84B00', light: '#FFF2E8', dark: '#A33A00' },
-            plumb: { DEFAULT: '#0277BD', light: '#E1F4FF', dark: '#01579B' },
-            orange: { DEFAULT: '#E8521A', hover: '#C94510' },
-            slate2: { DEFAULT: '#475569', light: '#94A3B8' },
+            mep: {
+              black: '#050811',
+              dark: '#0a1120',
+              card: '#0e172a',
+              border: '#1e293b',
+              blue: '#1e6bfb',     // Mechanical HVAC / Chilled Water
+              yellow: '#f59e0b',   // Electrical Systems / Power
+              green: '#10b981',    // Plumbing, PHE, Drainage & IGBC AP
+              red: '#ef4444',      // Fire Protection & Life Safety
+            }
           },
           fontFamily: {
-            sans:    ['Inter', 'ui-sans-serif', 'system-ui'],
-            display: ['"DM Serif Display"', 'Georgia', 'serif'],
-          },
-          borderRadius: { '2xl': '1rem', '3xl': '1.5rem', '4xl': '2rem' },
-        },
-      },
-    };
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
   </script>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; }
-    html { font-family: 'Inter', sans-serif; }
-    body { background: #ffffff; color: #0A1628; overflow-x: hidden; }
-
-    /* ── Navbar ── */
-    #navbar { transition: background 0.4s, box-shadow 0.4s, color 0.4s; }
-    #navbar.scrolled {
-      background: rgba(255,255,255,0.96) !important;
-      box-shadow: 0 1px 32px rgba(10,22,40,0.09);
-      backdrop-filter: blur(16px);
-    }
-    #navbar.scrolled .nav-link { color: #374151; }
-    #navbar.scrolled .nav-link:hover { color: #0A1628; background: #F1F5F9; }
-    #navbar.scrolled .logo-text { color: #0A1628; }
-    #navbar.scrolled .logo-sub  { color: #94A3B8; }
-
-    /* ── MEP tri-colour bar ── */
-    .mep-bar { display: flex; height: 3px; border-radius: 99px; overflow: hidden; }
-    .mep-bar span:nth-child(1) { background: #1565C0; flex: 1; }
-    .mep-bar span:nth-child(2) { background: #C84B00; flex: 1; }
-    .mep-bar span:nth-child(3) { background: #0277BD; flex: 1; }
-
-    /* ── Hero ── */
-    .hero-bg {
-      background: linear-gradient(140deg, #060D1C 0%, #0A1628 40%, #0F2848 70%, #091421 100%);
-    }
-    .hero-orb-1 {
-      background: radial-gradient(circle, rgba(21,101,192,0.28) 0%, transparent 65%);
-    }
-    .hero-orb-2 {
-      background: radial-gradient(circle, rgba(2,119,189,0.18) 0%, transparent 65%);
-    }
-
-    /* ── Gallery ── */
-    .gallery-track {
-      display: flex;
-      gap: 20px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      cursor: grab;
-      user-select: none;
-    }
-    .gallery-track.dragging { cursor: grabbing; scroll-behavior: auto; }
-    .gallery-track::-webkit-scrollbar { height: 5px; }
-    .gallery-track::-webkit-scrollbar-track { background: #E2E8F0; border-radius: 99px; }
-    .gallery-track::-webkit-scrollbar-thumb { background: #1565C0; border-radius: 99px; }
-
-    .gallery-card {
-      flex: 0 0 300px;
-      scroll-snap-align: start;
-      border-radius: 1.5rem;
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 32px rgba(10,22,40,0.13);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    @media (min-width: 640px)  { .gallery-card { flex: 0 0 380px; } }
-    @media (min-width: 1024px) { .gallery-card { flex: 0 0 440px; } }
-    .gallery-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(10,22,40,0.20); }
-    .gallery-card img { width: 100%; height: 300px; object-fit: cover; display: block; transition: transform 0.6s ease; }
-    .gallery-card:hover img { transform: scale(1.06); }
-    .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(6,9,20,0.82) 0%, rgba(6,9,20,0.15) 55%, transparent 100%); }
-    .gallery-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
-
-    /* ── Service cards ── */
-    .svc-card {
-      background: #ffffff;
-      border-radius: 1.5rem;
-      padding: 2rem;
-      box-shadow: 0 2px 16px rgba(10,22,40,0.06), 0 1px 3px rgba(10,22,40,0.04);
-      transition: transform 0.28s ease, box-shadow 0.28s ease;
-    }
-    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10,22,40,0.12); }
-
-    /* ── Icon blobs ── */
-    .icon-blob { width: 3rem; height: 3rem; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-
-    /* ── About image ── */
-    .about-img { border-radius: 2rem; overflow: hidden; }
-
-    /* ── Floating stat cards ── */
-    .float-stat {
-      background: rgba(255,255,255,0.10);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 1.25rem;
-    }
-
-    /* ── Contact form ── */
-    .form-input {
-      width: 100%;
-      border: 1.5px solid #E2E8F0;
-      border-radius: 0.875rem;
-      background: #ffffff;
-      padding: 0.875rem 1.1rem;
-      font-size: 0.9rem;
-      color: #0A1628;
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .form-input::placeholder { color: #94A3B8; }
-    .form-input:focus { border-color: #1565C0; box-shadow: 0 0 0 4px rgba(21,101,192,0.08); }
-    .form-input option { background: #fff; color: #0A1628; }
-
-    /* ── Gallery dot ── */
-    .gdot { width: 8px; height: 8px; border-radius: 99px; background: #CBD5E1; transition: all 0.3s ease; cursor: pointer; }
-    .gdot.active { background: #1565C0; width: 24px; }
-
-    /* ── Mobile menu ── */
-    #mobile-menu { transition: max-height 0.35s ease, opacity 0.35s ease; max-height: 0; opacity: 0; overflow: hidden; }
-    #mobile-menu.open { max-height: 420px; opacity: 1; }
-
-    /* ── Scroll reveal ── */
-    .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── Wave divider ── */
-    .wave { display: block; width: 100%; line-height: 0; }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #F1F5F9; }
-    ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
-    ::-webkit-scrollbar-thumb:hover { background: #1565C0; }
-
-    /* ── Pulse rings on hero ── */
-    @keyframes ping-slow { 0%,100%{opacity:0;transform:scale(1)} 50%{opacity:.15;transform:scale(1.5)} }
-    .ping-slow { animation: ping-slow 4s ease-in-out infinite; }
-    .ping-slow-2 { animation: ping-slow 4s ease-in-out infinite 1.3s; }
-    .ping-slow-3 { animation: ping-slow 4s ease-in-out infinite 2.6s; }
-  </style>
+  <!-- Custom MEP Blueprint Stylesheet -->
+  <link rel="stylesheet" href="css/mep-styles.css" />
 </head>
 
-<body class="antialiased">
+<body class="bg-mep-black text-slate-100 font-sans selection:bg-blue-600 selection:text-white antialiased">
 
-  <!-- ══════════════════════════════════
-       NAVBAR
-  ══════════════════════════════════ -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 lg:h-18">
+  <!-- ========================================================================
+       TOP CAD STATUS HUD BAR
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 bg-mep-black/90 backdrop-blur-md border-b border-slate-800">
+    <!-- Multi-Discipline MEP Ribbon -->
+    <div class="mep-multi-ribbon">
+      <div class="seg-blue" title="Mechanical / HVAC"></div>
+      <div class="seg-yellow" title="Electrical Systems"></div>
+      <div class="seg-green" title="Plumbing & PHE"></div>
+      <div class="seg-red" title="Fire Protection"></div>
+    </div>
 
-        <!-- Logo -->
-        <a href="#hero" class="flex items-center gap-3 group">
-          <div class="w-9 h-9 rounded-xl bg-mech flex items-center justify-center shadow-sm flex-shrink-0 group-hover:bg-mech-dark transition-colors">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="10" width="20" height="4" rx="1" fill="currentColor" opacity="0.9"/>
-              <rect x="10" y="2" width="4" height="20" rx="1" fill="currentColor" opacity="0.7"/>
-              <path d="M12 7.5l-1.5 4h3l-1.5 5" stroke="#FFC107" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <span class="logo-text font-bold text-white text-sm block leading-tight transition-colors"><span class="text-orange">MEP</span> Engineer</span>
-            <div class="mep-bar w-12 mt-0.5"><span></span><span></span><span></span></div>
-          </div>
-        </a>
-
-        <!-- Desktop Nav -->
-        <div class="hidden md:flex items-center gap-1">
-          <a href="#about"     class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">About</a>
-          <a href="#gallery"   class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">Portfolio</a>
-          <a href="#expertise" class="nav-link text-white/75 hover:text-white hover:bg-white/12 px-4 py-2 rounded-full text-sm font-medium transition-all">Services</a>
-          <a href="#contact"   class="ml-2 bg-orange hover:bg-orange-hover text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-colors shadow-sm">Contact</a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Brand & Name -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-slate-900 border border-blue-500/40 flex items-center justify-center font-mono font-bold text-blue-400 text-sm shadow-sm">
+          BP
         </div>
+        <div>
+          <a href="#hero" class="text-base font-bold text-white tracking-wide hover:text-blue-400 transition-colors flex items-center gap-2">
+            BHUSHAN ARVIND PATIL
+          </a>
+          <div class="text-[11px] font-mono text-slate-400 flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>CHARTERED MECHANICAL ENGINEER (IEI) &bull; IGBC-AP</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- Hamburger -->
-        <button id="menu-btn" aria-label="Toggle menu" class="md:hidden text-white/80 hover:text-white p-2 rounded-xl transition-colors">
-          <svg id="icon-open"  class="w-6 h-6"        fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-          <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-6 text-xs font-mono uppercase tracking-wider text-slate-400">
+        <a href="#summary" class="hover:text-blue-400 transition-colors">Overview</a>
+        <a href="#bim-sandbox" class="hover:text-yellow-400 transition-colors flex items-center gap-1">
+          <span class="text-yellow-400">&#9881;</span> BIM Sandbox
+        </a>
+        <a href="#projects" class="hover:text-emerald-400 transition-colors">Key Projects</a>
+        <a href="#experience" class="hover:text-blue-400 transition-colors">Experience</a>
+        <a href="#boq-calculator" class="hover:text-yellow-400 transition-colors">BOQ Estimator</a>
+        <a href="#skills" class="hover:text-red-400 transition-colors">Skills</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <span id="hud-coordinates" class="hidden xl:inline-block text-[10px] font-mono text-slate-500 bg-slate-950 px-2 py-1 rounded border border-slate-800">
+          GRID: X 0.520 | Y 0.114 | LOD 400
+        </span>
+        <button class="print-resume-btn px-3 py-1.5 rounded-md bg-slate-900 border border-slate-700 hover:border-blue-400 text-slate-200 text-xs font-mono transition-all flex items-center gap-1.5" title="Print / Download Official PDF Resume">
+          <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+          <span class="hidden sm:inline">Print Resume</span>
+        </button>
+        <a href="#contact" class="px-3.5 py-1.5 rounded-md bg-blue-600 hover:bg-blue-500 text-white text-xs font-mono font-semibold shadow-lg shadow-blue-900/40 transition-all flex items-center gap-1.5">
+          <span>Get in Touch</span>
+          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-1.5 rounded-md bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-300" aria-label="Toggle Navigation">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         </button>
       </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden bg-navy/96 backdrop-blur-xl border-t border-white/10 px-4">
-      <div class="py-4 flex flex-col gap-1.5">
-        <a href="#about"     class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">About</a>
-        <a href="#gallery"   class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">Portfolio</a>
-        <a href="#expertise" class="mob-link text-white/70 hover:text-white hover:bg-white/10 px-4 py-3 rounded-2xl text-sm font-medium transition-all">Services</a>
-        <a href="#contact"   class="mob-link mt-1 bg-orange text-white px-4 py-3 rounded-2xl text-sm font-semibold text-center transition-colors hover:bg-orange-hover">Contact</a>
-      </div>
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-950/98 border-t border-slate-800 px-4 py-3 space-y-2 text-xs font-mono uppercase tracking-wider">
+      <a href="#summary" class="block py-2 text-slate-300 hover:text-blue-400 border-b border-slate-900">Overview</a>
+      <a href="#bim-sandbox" class="block py-2 text-yellow-400 hover:text-yellow-300 border-b border-slate-900">&#9881; BIM Clash Sandbox</a>
+      <a href="#projects" class="block py-2 text-slate-300 hover:text-emerald-400 border-b border-slate-900">Key Projects</a>
+      <a href="#experience" class="block py-2 text-slate-300 hover:text-blue-400 border-b border-slate-900">Experience Timeline</a>
+      <a href="#boq-calculator" class="block py-2 text-slate-300 hover:text-yellow-400 border-b border-slate-900">BOQ Estimator</a>
+      <a href="#skills" class="block py-2 text-slate-300 hover:text-red-400 border-b border-slate-900">Skills &amp; Software</a>
+      <a href="#contact" class="block py-2 text-slate-300 hover:text-white">Contact &amp; Connect</a>
     </div>
-  </nav>
+  </header>
 
+  <!-- ========================================================================
+       HERO SECTION WITH CAD BLUEPRINT BACKGROUND & PARTICLES
+       ======================================================================== -->
+  <section id="hero" class="relative overflow-hidden pt-12 pb-20 border-b border-slate-800/80 bg-blueprint-dark">
+    <!-- Interactive Canvas Background -->
+    <canvas id="hero-cad-canvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-40"></canvas>
 
-  <!-- ══════════════════════════════════
-       HERO
-  ══════════════════════════════════ -->
-  <section id="hero" class="hero-bg relative min-h-screen flex flex-col justify-center pt-16 overflow-hidden">
-
-    <!-- Orbs -->
-    <div class="hero-orb-1 absolute w-[600px] h-[600px] rounded-full top-1/2 right-[-100px] -translate-y-1/2 pointer-events-none"></div>
-    <div class="hero-orb-2 absolute w-[400px] h-[400px] rounded-full bottom-[-50px] left-[-80px] pointer-events-none"></div>
-
-    <!-- Decorative animated rings -->
-    <div class="absolute top-1/3 right-1/4 pointer-events-none hidden lg:block">
-      <div class="relative w-4 h-4">
-        <div class="absolute inset-0 rounded-full bg-mech ping-slow"></div>
-        <div class="absolute inset-0 rounded-full bg-mech ping-slow-2"></div>
-        <div class="absolute inset-0 rounded-full bg-mech opacity-60"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Status Badge Ribbon -->
+      <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs font-mono mb-6 backdrop-blur-sm">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span class="text-slate-300">CURRENT ROLE:</span>
+        <span class="text-blue-400 font-semibold">Senior Project Engineer @ Turner International</span>
+        <span class="text-slate-500">&bull;</span>
+        <span class="text-amber-400">US Mission-Critical Data Centers</span>
       </div>
-    </div>
-    <div class="absolute bottom-1/3 right-1/3 pointer-events-none hidden lg:block">
-      <div class="relative w-3 h-3">
-        <div class="absolute inset-0 rounded-full bg-plumb ping-slow-2"></div>
-        <div class="absolute inset-0 rounded-full bg-plumb opacity-60"></div>
-      </div>
-    </div>
-    <div class="absolute top-2/3 left-1/4 pointer-events-none hidden lg:block">
-      <div class="relative w-2.5 h-2.5">
-        <div class="absolute inset-0 rounded-full bg-elec ping-slow-3"></div>
-        <div class="absolute inset-0 rounded-full bg-elec opacity-60"></div>
-      </div>
-    </div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-      <div class="lg:grid lg:grid-cols-5 lg:gap-12 items-center">
-
-        <!-- Left text (3/5) -->
-        <div class="lg:col-span-3">
-          <!-- Status badge -->
-          <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white/90 text-xs font-semibold px-4 py-2 rounded-full mb-8">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0"></span>
-            Available for New Projects &mdash; US &amp; India
-          </div>
-
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.75rem] leading-[1.08] text-white">
-            Senior MEP<br/>
-            <em class="text-orange not-italic">Mechanical</em><br/>
-            Engineer
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <!-- Left Column: Bio & Credentials -->
+        <div class="lg:col-span-8">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15]">
+            Engineering Seamless, High-Precision <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-amber-400 via-emerald-400 to-red-400">
+              MEP Infrastructure
+            </span>
           </h1>
 
-          <p class="mt-6 text-blue-100/65 text-base lg:text-lg leading-relaxed max-w-md font-light">
-            10+ years of precision MEP solutions across US and Indian construction projects. From HVAC design to clash detection — delivered to code, on time.
+          <p class="mt-5 text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
+            <strong class="text-white">Chartered Mechanical Engineer (IEI)</strong> and <strong class="text-emerald-400">IGBC-AP</strong> with over a decade of progressive leadership in US & Indian MEP construction. Expert in pre-construction constructability reviews, Revit BIM 360 clash resolution, and executing multi-billion-rupee data centers, hospitals, and mega-townships within stringent budget parameters.
           </p>
 
-          <!-- M · E · P pills -->
-          <div class="mt-8 flex flex-wrap gap-2.5">
-            <span class="flex items-center gap-2 bg-mech/25 border border-mech/40 text-blue-200 px-4 py-2 rounded-full text-sm font-medium">
-              <span class="w-2 h-2 rounded-full bg-mech flex-shrink-0"></span>Mechanical
-            </span>
-            <span class="flex items-center gap-2 bg-elec/25 border border-elec/40 text-orange-200 px-4 py-2 rounded-full text-sm font-medium">
-              <span class="w-2 h-2 rounded-full bg-elec flex-shrink-0"></span>Electrical
-            </span>
-            <span class="flex items-center gap-2 bg-plumb/25 border border-plumb/40 text-cyan-200 px-4 py-2 rounded-full text-sm font-medium">
-              <span class="w-2 h-2 rounded-full bg-plumb flex-shrink-0"></span>Plumbing
-            </span>
+          <!-- Verified Accreditations Badges -->
+          <div class="mt-6 flex flex-wrap gap-2.5">
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-amber-500/40 text-xs font-mono text-amber-300">
+              <span class="text-amber-400 text-sm">&#127963;</span>
+              <span>Chartered Mechanical Engineer &mdash; IEI (2022)</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-emerald-500/40 text-xs font-mono text-emerald-300">
+              <span class="text-emerald-400 text-sm">&#127807;</span>
+              <span>IGBC Accredited Professional (IGBC AP)</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-blue-500/40 text-xs font-mono text-blue-300">
+              <span class="text-blue-400 text-sm">&#128295;</span>
+              <span>MEP Design & Drafting &mdash; Amnear Engineers</span>
+            </div>
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900/90 border border-slate-700 text-xs font-mono text-slate-300">
+              <span class="text-slate-400 text-sm">&#127891;</span>
+              <span>B.E. Mechanical &mdash; Mumbai University</span>
+            </div>
           </div>
 
-          <!-- CTAs -->
-          <div class="mt-10 flex flex-wrap gap-4">
-            <a href="#contact" class="inline-flex items-center gap-2 bg-orange hover:bg-orange-hover text-white font-semibold px-8 py-4 rounded-full text-sm shadow-lg hover:shadow-xl transition-all duration-200 group">
-              Start a Project
-              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          <!-- Contact / CTA Action Strip -->
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a href="#projects" class="px-5 py-3 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm shadow-xl shadow-blue-900/30 transition-all flex items-center gap-2">
+              <span>Explore Portfolio</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </a>
-            <a href="#gallery" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/18 border border-white/20 text-white px-8 py-4 rounded-full text-sm font-medium transition-all duration-200">
-              View Portfolio
+            <a href="#bim-sandbox" class="px-5 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-yellow-500/50 hover:border-yellow-400 text-yellow-300 font-semibold text-sm transition-all flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+              <span>Interactive BIM Clash Sandbox</span>
             </a>
+            <button id="download-vcard-btn" class="px-4 py-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-300 font-mono text-xs transition-all flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Download vCard</span>
+            </button>
           </div>
         </div>
 
-        <!-- Right floating stats (2/5) -->
-        <div class="hidden lg:flex lg:col-span-2 flex-col gap-4 mt-12 lg:mt-0">
-
-          <div class="float-stat p-6">
-            <div class="flex items-end gap-2 mb-1">
-              <span class="font-display text-5xl text-white">10</span>
-              <span class="text-orange text-3xl font-bold mb-1">+</span>
+        <!-- Right Column: Live Engineering Telemetry Box -->
+        <div class="lg:col-span-4">
+          <div class="hud-corner-box rounded-xl bg-slate-950/90 border border-slate-800 p-5 shadow-2xl backdrop-blur-md">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                ENGINEERING TELEMETRY
+              </span>
+              <span class="text-[10px] font-mono text-blue-400 bg-blue-950/60 px-2 py-0.5 rounded border border-blue-800">
+                ACTIVE
+              </span>
             </div>
-            <p class="text-blue-200/55 text-sm">Years MEP Experience</p>
-            <div class="mep-bar mt-3 w-full"><span></span><span></span><span></span></div>
-          </div>
 
-          <div class="grid grid-cols-2 gap-4">
-            <div class="float-stat p-5 text-center">
-              <p class="font-display text-3xl text-white">US</p>
-              <p class="text-blue-200/45 text-xs mt-1.5">NFPA · ASHRAE<br/>IBC · IMC</p>
-            </div>
-            <div class="float-stat p-5 text-center">
-              <p class="font-display text-3xl text-white">IND</p>
-              <p class="text-blue-200/45 text-xs mt-1.5">NBC · IS<br/>BIS · SP-7</p>
-            </div>
-          </div>
-
-          <div class="float-stat p-5">
-            <div class="flex justify-around text-center">
-              <div>
-                <p class="font-display text-3xl text-white">5</p>
-                <p class="text-blue-200/45 text-xs mt-1">Disciplines</p>
+            <!-- Metric Grid -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Portfolio Value</div>
+                <div class="text-xl font-black text-amber-400 font-mono mt-0.5">&#8377;4,300+ Cr</div>
+                <div class="text-[10px] text-slate-500 mt-1">CIDCO PMAY & High-Rises</div>
               </div>
-              <div class="w-px bg-white/10"></div>
-              <div>
-                <p class="font-display text-3xl text-white">100<span class="text-orange text-xl">%</span></p>
-                <p class="text-blue-200/45 text-xs mt-1">Compliant</p>
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Pre-Con Clash Red.</div>
+                <div class="text-xl font-black text-blue-400 font-mono mt-0.5">20%</div>
+                <div class="text-[10px] text-slate-500 mt-1">US Data Centers (Google/Apple)</div>
               </div>
-              <div class="w-px bg-white/10"></div>
-              <div>
-                <p class="font-display text-3xl text-white">24h</p>
-                <p class="text-blue-200/45 text-xs mt-1">Response</p>
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Rework Prevented</div>
+                <div class="text-xl font-black text-emerald-400 font-mono mt-0.5">&#8377;15 Lakhs+</div>
+                <div class="text-[10px] text-slate-500 mt-1">Revit 3D Spatial Checks</div>
+              </div>
+              <div class="p-3 rounded-lg bg-slate-900/80 border border-slate-800/80">
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Tender Bids Won</div>
+                <div class="text-xl font-black text-red-400 font-mono mt-0.5">&#8377;50+ Crores</div>
+                <div class="text-[10px] text-slate-500 mt-1">Detailed BOQ Packages</div>
               </div>
             </div>
-          </div>
 
+            <!-- Direct Contact Fast-Access -->
+            <div class="mt-4 pt-3 border-t border-slate-800 text-xs font-mono space-y-2 text-slate-300">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Email:</span>
+                <span class="text-slate-200 font-medium">bhushanp49@gmail.com</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Mobile:</span>
+                <span class="text-slate-200 font-medium">+91 8928213665</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">Location:</span>
+                <span class="text-slate-200 font-medium">New Panvel, Maharashtra</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- Wave bottom -->
-    <svg class="wave absolute bottom-0 left-0" viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 90V45C180 10 360 0 540 15C720 30 900 65 1080 70C1260 75 1380 55 1440 45V90H0Z" fill="#ffffff"/>
-    </svg>
   </section>
 
-
-  <!-- ══════════════════════════════════
-       GALLERY — Horizontal image carousel
-  ══════════════════════════════════ -->
-  <section id="gallery" class="bg-white pt-20 lg:pt-28 pb-0">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- Header row -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 reveal">
-        <div>
-          <div class="mep-bar w-14 mb-4"><span></span><span></span><span></span></div>
-          <h2 class="font-display text-3xl lg:text-4xl text-navy">MEP Expertise in Action</h2>
-          <p class="mt-2 text-slate-500 text-sm lg:text-base max-w-lg">
-            From towering skyscrapers to intricate mechanical rooms — a cross-discipline look at the work.
-          </p>
-        </div>
-        <!-- Prev / Next -->
-        <div class="flex items-center gap-3 flex-shrink-0">
-          <button id="gprev" aria-label="Previous image"
-            class="w-11 h-11 rounded-full border-2 border-gray-200 hover:border-mech hover:bg-mech/5 flex items-center justify-center text-gray-400 hover:text-mech transition-all">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-          </button>
-          <button id="gnext" aria-label="Next image"
-            class="w-11 h-11 rounded-full border-2 border-gray-200 hover:border-mech hover:bg-mech/5 flex items-center justify-center text-gray-400 hover:text-mech transition-all">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
+  <!-- ========================================================================
+       INTERACTIVE MEP DISCIPLINE CONTROL CONSOLE (BIM FILTER)
+       ======================================================================== -->
+  <section class="sticky top-16 z-30 bg-slate-950/95 border-b border-slate-800 py-3 backdrop-blur-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
+          DISCIPLINE FILTER:
+        </span>
+        <span id="active-discipline-label" class="text-xs font-mono text-blue-400 font-semibold">
+          All MEP Systems (Integrated LOD 400 BIM)
+        </span>
       </div>
 
-      <!-- Scrollable track -->
-      <div id="gtrack" class="gallery-track pb-4 reveal">
-
-        <!-- Card 1 — High-rise MEP -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="High-rise building under construction with MEP systems" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 bg-mech/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Mechanical — M
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">High-Rise MEP Coordination</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">HVAC, ductwork & system coordination across multi-storey commercial towers.</p>
-          </div>
-        </div>
-
-        <!-- Card 2 — HVAC -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="HVAC rooftop air handling units" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 bg-mech/90 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Mechanical — M
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">HVAC System Design</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">Rooftop AHUs, chillers, and full HVAC layout per ASHRAE 90.1 standards.</p>
-          </div>
-        </div>
-
-        <!-- Card 3 — Plumbing / Fire -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="Construction site plumbing and fire protection installation" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(2,119,189,0.85)">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Plumbing — P
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">Plumbing &amp; Fire Protection</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">Domestic water, sanitary drainage &amp; NFPA-compliant fire suppression systems.</p>
-          </div>
-        </div>
-
-        <!-- Card 4 — QTO / Estimation -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="Modern commercial building exterior" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(232,82,26,0.85)">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> QTO &amp; Estimation
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">Commercial Building QTO</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">Precise quantity takeoffs &amp; cost estimates for large-scale commercial developments.</p>
-          </div>
-        </div>
-
-        <!-- Card 5 — Electrical -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="Electrical installation in commercial building" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(200,75,0,0.85)">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Electrical — E
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">Electrical Layout &amp; Review</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">Lighting design, power distribution &amp; panel scheduling for industrial facilities.</p>
-          </div>
-        </div>
-
-        <!-- Card 6 — Code Compliance -->
-        <div class="gallery-card">
-          <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=880&h=600&q=80"
-               alt="Skyscraper reflecting blue sky" loading="lazy" />
-          <div class="gallery-overlay"></div>
-          <div class="gallery-content">
-            <span class="inline-flex items-center gap-1.5 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1.5 rounded-full mb-2.5" style="background:rgba(5,150,105,0.85)">
-              <span class="w-1.5 h-1.5 rounded-full bg-white/80"></span> Code Compliance
-            </span>
-            <h3 class="text-white font-semibold text-base leading-snug">Code Compliance Review</h3>
-            <p class="text-white/60 text-xs mt-1 leading-relaxed">NFPA, NBC &amp; IS code review to ensure full regulatory compliance before inspection.</p>
-          </div>
-        </div>
-
-      </div><!-- /gallery-track -->
-
-      <!-- Dots -->
-      <div class="flex justify-center items-center gap-2 mt-6 pb-20" id="gdots">
-        <button class="gdot active" data-idx="0" aria-label="Go to slide 1"></button>
-        <button class="gdot"        data-idx="1" aria-label="Go to slide 2"></button>
-        <button class="gdot"        data-idx="2" aria-label="Go to slide 3"></button>
-        <button class="gdot"        data-idx="3" aria-label="Go to slide 4"></button>
-        <button class="gdot"        data-idx="4" aria-label="Go to slide 5"></button>
-        <button class="gdot"        data-idx="5" aria-label="Go to slide 6"></button>
+      <!-- Discipline Buttons adhering strictly to MEP Color Standard -->
+      <div class="flex flex-wrap items-center gap-2">
+        <button data-discipline-filter="all" class="discipline-btn active-all px-3 py-1.5 rounded-lg border border-slate-700 text-xs font-mono transition-all">
+          Integrated All
+        </button>
+        <button data-discipline-filter="mech" class="discipline-btn bg-slate-900 border border-slate-800 text-slate-400 hover:border-blue-500 hover:text-blue-300 px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+          <span>HVAC / Mech (Blue)</span>
+        </button>
+        <button data-discipline-filter="elec" class="discipline-btn bg-slate-900 border border-slate-800 text-slate-400 hover:border-amber-500 hover:text-amber-300 px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+          <span>Electrical (Yellow)</span>
+        </button>
+        <button data-discipline-filter="plumb" class="discipline-btn bg-slate-900 border border-slate-800 text-slate-400 hover:border-emerald-500 hover:text-emerald-300 px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>Plumbing / PHE (Green)</span>
+        </button>
+        <button data-discipline-filter="fire" class="discipline-btn bg-slate-900 border border-slate-800 text-slate-400 hover:border-red-500 hover:text-red-300 px-3 py-1.5 rounded-lg text-xs font-mono transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <span>Fire Safety (Red)</span>
+        </button>
       </div>
     </div>
-
-    <!-- Wave to About -->
-    <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0C360 80 1080 80 1440 0V80H0V0Z" fill="#F0F7FF"/>
-    </svg>
   </section>
 
-
-  <!-- ══════════════════════════════════
-       ABOUT
-  ══════════════════════════════════ -->
-  <section id="about" class="bg-[#F0F7FF] py-20 lg:py-28">
+  <!-- ========================================================================
+       PROFESSIONAL SUMMARY & CORE VALUE PILLARS
+       ======================================================================== -->
+  <section id="summary" class="py-16 bg-slate-950/40 border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-
-        <!-- Image col -->
-        <div class="reveal order-2 lg:order-1">
-          <div class="about-img relative shadow-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?auto=format&fit=crop&w=800&h=700&q=80"
-              alt="MEP engineer reviewing blueprints and construction plans"
-              class="w-full h-[420px] lg:h-[520px] object-cover"
-              loading="lazy"
-            />
-            <!-- Floating discipline badge -->
-            <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-              <p class="text-xs font-semibold text-slate-500 mb-3 uppercase tracking-wider">Core Disciplines</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="flex items-center gap-1.5 bg-mech/10 text-mech px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-mech"></span>HVAC Systems</span>
-                <span class="flex items-center gap-1.5 bg-plumb/10 text-plumb px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-plumb"></span>Fire Protection</span>
-                <span class="flex items-center gap-1.5 bg-elec/10 text-elec px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-elec"></span>Electrical Layout</span>
-                <span class="flex items-center gap-1.5 bg-mech/10 text-mech px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-mech"></span>Clash Detection</span>
-                <span class="flex items-center gap-1.5 bg-plumb/10 text-plumb px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-plumb"></span>Plumbing & Drainage</span>
-                <span class="flex items-center gap-1.5 bg-orange/10 text-orange px-3 py-1.5 rounded-full text-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-orange"></span>QTO / Estimation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Text col -->
-        <div class="reveal order-1 lg:order-2">
-          <div class="mep-bar w-14 mb-5"><span></span><span></span><span></span></div>
-          <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">About Me</p>
-          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-snug">
-            A decade of precision<br/><em class="not-italic text-orange">engineering</em> expertise
-          </h2>
-          <p class="mt-6 text-slate-600 text-base leading-relaxed">
-            I am a professional Mechanical Engineer bringing <strong class="text-navy">10 years</strong> of cross-functional expertise in MEP construction and engineering. I help <strong class="text-navy">contractors, architects, and engineering firms</strong> streamline their construction processes through precise design review, proactive clash detection, and accurate estimation.
-          </p>
-
-          <!-- Highlights -->
-          <ul class="mt-8 space-y-4">
-            <li class="flex items-start gap-4">
-              <div class="icon-blob bg-mech/10 mt-0.5 flex-shrink-0">
-                <svg class="w-5 h-5 text-mech" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">Cross-discipline MEP experience</p>
-                <p class="text-slate-500 text-sm mt-0.5">Across residential, commercial, and industrial projects in both the US and India.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-4">
-              <div class="icon-blob bg-elec/10 mt-0.5 flex-shrink-0">
-                <svg class="w-5 h-5 text-elec" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">US &amp; Indian code expertise</p>
-                <p class="text-slate-500 text-sm mt-0.5">Deep familiarity with NFPA, ASHRAE (US) and NBC, IS, BIS (India) standards.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-4">
-              <div class="icon-blob bg-plumb/10 mt-0.5 flex-shrink-0">
-                <svg class="w-5 h-5 text-plumb" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">Field-ready constructability focus</p>
-                <p class="text-slate-500 text-sm mt-0.5">Identifying &amp; resolving issues before they reach the field, saving time and cost.</p>
-              </div>
-            </li>
-          </ul>
-
-          <!-- Market badges -->
-          <div class="mt-8 grid grid-cols-2 gap-4">
-            <div class="bg-white rounded-2xl p-4 shadow-soft">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="w-2 h-2 rounded-full bg-orange flex-shrink-0"></span>
-                <span class="text-xs font-bold text-orange uppercase tracking-wider">US Market</span>
-              </div>
-              <p class="text-xs text-slate-500 leading-relaxed">NFPA · ASHRAE · IBC · IMC</p>
-            </div>
-            <div class="bg-white rounded-2xl p-4 shadow-soft">
-              <div class="flex items-center gap-2 mb-2">
-                <span class="w-2 h-2 rounded-full bg-mech flex-shrink-0"></span>
-                <span class="text-xs font-bold text-mech uppercase tracking-wider">India Market</span>
-              </div>
-              <p class="text-xs text-slate-500 leading-relaxed">NBC · IS Codes · BIS · SP-7</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Wave to Services -->
-    <svg class="wave mt-20 lg:mt-28" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 80C360 0 1080 0 1440 80V80H0V80Z" fill="#ffffff"/>
-    </svg>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       EXPERTISE & SERVICES
-  ══════════════════════════════════ -->
-  <section id="expertise" class="bg-white py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="text-center reveal mb-14">
-        <div class="mep-bar w-14 mx-auto mb-5"><span></span><span></span><span></span></div>
-        <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">Scope of Services</p>
-        <h2 class="font-display text-3xl lg:text-4xl text-navy">What I Bring to Your Project</h2>
-        <p class="mt-4 text-slate-500 text-sm lg:text-base max-w-xl mx-auto leading-relaxed">
-          From initial design through final inspection — precision-driven MEP solutions for every phase of construction.
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-widest">EXECUTIVE OVERVIEW</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Decade of Excellence in MEP Engineering</h2>
+        <p class="text-slate-400 text-sm mt-3">
+          Bridging technical architectural design, stringent international codes, and flawless on-site installation across mission-critical facilities and mega-scale townships.
         </p>
       </div>
 
-      <!-- 5 Service cards -->
-      <div id="services" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Card 1 -->
-        <div class="svc-card reveal">
-          <div class="icon-blob bg-mech/10 mb-5">
-            <svg class="w-6 h-6 text-mech" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <rect x="2" y="9" width="20" height="6" rx="1" stroke="currentColor"/>
-              <path d="M6 9V7M10 9V5M14 9V7M18 9V5" stroke="currentColor" stroke-linecap="round"/>
-            </svg>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Pillar 1: Pre-Con & Constructability -->
+        <div class="mep-card-interactive p-6 rounded-xl border-l-4 border-l-blue-500" data-discipline="mech">
+          <div class="w-12 h-12 rounded-lg bg-blue-950/60 border border-blue-500/40 flex items-center justify-center text-blue-400 mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <span class="text-xs font-semibold text-mech bg-mech/10 px-3 py-1 rounded-full">Mechanical · M</span>
-          <h3 class="mt-4 text-lg font-bold text-navy">MEP Engineering &amp; Design</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Full-cycle design and optimization for diverse building types, ensuring performance, efficiency, and integration across all MEP systems.</p>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="svc-card reveal">
-          <div class="icon-blob bg-elec/10 mb-5">
-            <svg class="w-6 h-6 text-elec" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <span class="text-xs font-semibold text-elec bg-elec/10 px-3 py-1 rounded-full">Project Lifecycle</span>
-          <h3 class="mt-4 text-lg font-bold text-navy">Project Lifecycles</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Comprehensive experience navigating standards in both Indian and US construction sectors — from pre-design through project closeout.</p>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="svc-card reveal">
-          <div class="icon-blob bg-plumb/10 mb-5">
-            <svg class="w-6 h-6 text-plumb" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/>
-            </svg>
-          </div>
-          <span class="text-xs font-semibold text-plumb bg-plumb/10 px-3 py-1 rounded-full">Plumbing · P</span>
-          <h3 class="mt-4 text-lg font-bold text-navy">Drawing &amp; Documentation</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Expert in drawing reviews, overlays, and constructability reviews to identify issues prior to execution — saving costly field changes.</p>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="svc-card reveal">
-          <div class="icon-blob bg-orange/10 mb-5">
-            <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-            </svg>
-          </div>
-          <span class="text-xs font-semibold text-orange bg-orange/10 px-3 py-1 rounded-full">Estimation</span>
-          <h3 class="mt-4 text-lg font-bold text-navy">QTO &amp; Estimation</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Highly accurate <strong class="text-navy">Quantity Takeoffs (QTO)</strong> to support project budgeting and procurement — minimising cost overruns and material waste.</p>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="svc-card reveal sm:col-span-2 lg:col-span-1">
-          <div class="icon-blob bg-emerald-100 mb-5">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
-            </svg>
-          </div>
-          <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-3 py-1 rounded-full">Compliance</span>
-          <h3 class="mt-4 text-lg font-bold text-navy">Code Compliance</h3>
-          <p class="mt-2 text-slate-500 text-sm leading-relaxed">Deep working knowledge of <strong class="text-navy">NFPA, NBC, and IS</strong> guidelines to ensure strict regulatory alignment and smooth approvals.</p>
-        </div>
-
-      </div>
-
-      <!-- Quote banner -->
-      <div class="mt-16 reveal">
-        <div class="relative bg-navy rounded-3xl px-8 py-10 lg:px-14 lg:py-12 overflow-hidden">
-          <!-- Gradient orb -->
-          <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-mech/25 blur-3xl pointer-events-none"></div>
-          <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-plumb/20 blur-3xl pointer-events-none"></div>
-          <div class="relative flex flex-col lg:flex-row items-start lg:items-center gap-8">
-            <div class="w-16 h-16 rounded-2xl bg-orange/20 flex-shrink-0 flex items-center justify-center">
-              <svg class="w-8 h-8 text-orange" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-            </div>
-            <blockquote class="text-white text-base lg:text-xl font-light leading-relaxed max-w-3xl">
-              "I pride myself on delivering highly accurate, buildable, and compliant engineering solutions that
-              <span class="text-orange font-medium">drive project success</span> from the drafting table to the construction site."
-            </blockquote>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Wave to Contact -->
-    <svg class="wave mt-20 lg:mt-28" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0C360 80 1080 80 1440 0V80H0V0Z" fill="#F0F7FF"/>
-    </svg>
-  </section>
-
-
-  <!-- ══════════════════════════════════
-       CONTACT
-  ══════════════════════════════════ -->
-  <section id="contact" class="bg-[#F0F7FF] py-20 lg:py-28">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-
-        <!-- Left -->
-        <div class="lg:col-span-2 reveal">
-          <div class="mep-bar w-14 mb-5"><span></span><span></span><span></span></div>
-          <p class="text-xs font-semibold text-mech uppercase tracking-widest mb-3">Get In Touch</p>
-          <h2 class="font-display text-3xl lg:text-4xl text-navy leading-snug">
-            Let's Build Something<br/><em class="not-italic text-orange">Precise</em> Together
-          </h2>
-          <p class="mt-5 text-slate-600 text-sm lg:text-base leading-relaxed">
-            Share your project requirements and I'll respond within <strong class="text-navy">24 hours</strong> with a tailored approach.
+          <h3 class="text-lg font-bold text-white">Pre-Con & Constructability Reviews</h3>
+          <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+            Spearheaded clash mitigation for Google & Apple US data centers. Reduced pre-execution design conflicts by <strong>20%</strong> using automated BIM 360 clash matrix audits.
           </p>
-
-          <!-- Info cards -->
-          <div class="mt-8 space-y-4">
-            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
-              <div class="icon-blob bg-mech/10 flex-shrink-0">
-                <svg class="w-5 h-5 text-mech" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253M3 12a8.959 8.959 0 00.284 2.253"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">Project Locations</p>
-                <p class="text-slate-500 text-xs mt-0.5">United States · India · International</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
-              <div class="icon-blob bg-elec/10 flex-shrink-0">
-                <svg class="w-5 h-5 text-elec" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">Response Time</p>
-                <p class="text-slate-500 text-xs mt-0.5">Typically within 24 hours</p>
-              </div>
-            </div>
-            <div class="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-soft">
-              <div class="icon-blob bg-plumb/10 flex-shrink-0">
-                <svg class="w-5 h-5 text-plumb" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z"/></svg>
-              </div>
-              <div>
-                <p class="font-semibold text-navy text-sm">Available For</p>
-                <p class="text-slate-500 text-xs mt-0.5">Freelance · Contract · Consulting</p>
-              </div>
-            </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-blue-400">
+            <span>Standard: ASHRAE & NFPA</span>
+            <span>LOD 350 / 400</span>
           </div>
         </div>
 
-        <!-- Right — form -->
-        <div class="lg:col-span-3 reveal">
-          <div class="bg-white rounded-3xl p-7 lg:p-10 shadow-xl shadow-navy/8">
-            <!-- ⚠️ Replace YOUR_EMAIL@example.com with your actual email -->
-            <form action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST" id="contact-form" class="space-y-5">
-              <input type="hidden" name="_captcha"  value="false" />
-              <input type="hidden" name="_next"     value="https://bhushanp49.github.io/Potfolio/thank-you.html" />
-              <input type="hidden" name="_subject"  value="New Project Inquiry from Portfolio" />
-              <input type="hidden" name="_template" value="table" />
+        <!-- Pillar 2: Quantity Takeoffs & BOQ Estimation -->
+        <div class="mep-card-interactive p-6 rounded-xl border-l-4 border-l-amber-500" data-discipline="elec">
+          <div class="w-12 h-12 rounded-lg bg-amber-950/60 border border-amber-500/40 flex items-center justify-center text-amber-400 mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white">Precise BOQ & Cost Control</h3>
+          <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+            Formulated multi-disciplinary cost estimates and tender packages yielding <strong>&#8377;50+ Crores</strong> in winning bids and maintained budget variances strictly below <strong>5%</strong>.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-amber-400">
+            <span>Tools: PlanSwift & SAP MM</span>
+            <span>&lt;5% Budget Variance</span>
+          </div>
+        </div>
 
-              <div class="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="name"  class="block text-xs font-semibold text-navy mb-2">Full Name <span class="text-orange">*</span></label>
-                  <input type="text"  id="name"  name="name"  required placeholder="John Smith"       class="form-input" />
-                </div>
-                <div>
-                  <label for="email" class="block text-xs font-semibold text-navy mb-2">Email Address <span class="text-orange">*</span></label>
-                  <input type="email" id="email" name="email" required placeholder="john@company.com" class="form-input" />
-                </div>
-              </div>
+        <!-- Pillar 3: Multi-Discipline Team Leadership -->
+        <div class="mep-card-interactive p-6 rounded-xl border-l-4 border-l-emerald-500" data-discipline="plumb">
+          <div class="w-12 h-12 rounded-lg bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mb-4">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-white">Cross-Functional Leadership</h3>
+          <p class="text-slate-300 text-sm mt-2 leading-relaxed">
+            Directed teams of <strong>8 to 12 MEP engineers & designers</strong> across Turner, Blue Star, and SSA. Improved technical query turnaround by <strong>15%</strong> with 95% on-time milestone delivery.
+          </p>
+          <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-emerald-400">
+            <span>Team: 10-12 Engineers</span>
+            <span>98% System Uptime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-              <div>
-                <label for="location" class="block text-xs font-semibold text-navy mb-2">Project Location <span class="text-orange">*</span></label>
-                <select id="location" name="project_location" required class="form-input">
-                  <option value="" disabled selected>Select location…</option>
-                  <option value="USA">USA</option>
-                  <option value="India">India</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
+  <!-- ========================================================================
+       INTERACTIVE 2.5D BIM CLASH & SPATIAL COORDINATION SANDBOX
+       ======================================================================== -->
+  <section id="bim-sandbox" class="py-16 bg-blueprint-dark border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="text-xs font-mono text-yellow-400 font-bold uppercase tracking-widest flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
+            INTERACTIVE BIM COORDINATION LAB
+          </span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Spatial Clash Detection Simulator</h2>
+          <p class="text-slate-400 text-sm mt-1 max-w-2xl">
+            Experience how Bhushan coordinates multi-disciplinary MEP services in tight ceiling plinths, eliminating costly on-site clashes and contractor rework before concrete is poured.
+          </p>
+        </div>
 
-              <div>
-                <label for="service" class="block text-xs font-semibold text-navy mb-2">Service Needed <span class="text-orange">*</span></label>
-                <select id="service" name="service_needed" required class="form-input">
-                  <option value="" disabled selected>Select service…</option>
-                  <option value="Design Review">Design Review</option>
-                  <option value="QTO">QTO (Quantity Takeoff)</option>
-                  <option value="Constructability Review">Constructability Review</option>
-                  <option value="MEP Engineering">MEP Engineering &amp; Design</option>
-                  <option value="Code Compliance">Code Compliance</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
+        <div class="flex items-center gap-2">
+          <button id="sandbox-test-btn" class="px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-700 hover:border-slate-500 text-xs font-mono text-slate-300 transition-all flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <span>Reset Scenario</span>
+          </button>
+          <button id="sandbox-resolve-btn" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs font-mono transition-all flex items-center gap-2 shadow-lg shadow-emerald-950">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            <span>Apply Bhushan's Spatial Reroute</span>
+          </button>
+        </div>
+      </div>
 
-              <div>
-                <label for="details" class="block text-xs font-semibold text-navy mb-2">Project Details <span class="text-orange">*</span></label>
-                <textarea id="details" name="project_details" required rows="5"
-                  placeholder="Describe your project scope, timeline, and any specific requirements…"
-                  class="form-input resize-none"></textarea>
-              </div>
+      <!-- Sandbox Interactive Stage -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <!-- SVG Isometric Cross Section Visualizer -->
+        <div class="lg:col-span-8 p-6 rounded-xl bg-slate-950 border border-slate-800 shadow-2xl relative overflow-hidden">
+          <!-- CAD Header -->
+          <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4 text-xs font-mono text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-sm bg-blue-500"></span>
+              <span>SECTION ELEVATION: TYPICAL DATA CENTER / HOSPITAL CORRIDOR CEILING</span>
+            </div>
+            <span class="text-[10px] text-slate-500 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+              SCALE: 1:20 &bull; NAVISWORKS CLASH MATRIX
+            </span>
+          </div>
 
-              <button type="submit"
-                class="w-full flex items-center justify-center gap-2 bg-navy hover:bg-navy-700 text-white font-semibold py-4 px-8 rounded-2xl text-sm transition-all duration-200 hover:shadow-lg group">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"/></svg>
-                Send Inquiry
-              </button>
-              <p class="text-center text-xs text-slate-400 mt-1">Your information is kept private and never shared.</p>
-            </form>
+          <!-- Interactive SVG Stage -->
+          <div class="relative w-full h-80 bg-slate-950/80 rounded-lg border border-slate-900 flex items-center justify-center overflow-hidden">
+            <svg id="sandbox-svg" class="w-full h-full" viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg">
+              <!-- Background CAD Grid -->
+              <defs>
+                <pattern id="cadGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#cadGrid)" />
+
+              <!-- Structural Slab & Beams (Grey/Black) -->
+              <rect x="0" y="20" width="800" height="25" fill="#1e293b" stroke="#334155" stroke-width="1.5" />
+              <text x="30" y="37" fill="#64748b" font-size="10" font-family="monospace">RC STRUCTURAL SLAB (+4.200m)</text>
+              <rect x="220" y="45" width="50" height="40" fill="#334155" />
+              <rect x="540" y="45" width="50" height="40" fill="#334155" />
+              <text x="225" y="70" fill="#94a3b8" font-size="9" font-family="monospace">BEAM</text>
+              <text x="545" y="70" fill="#94a3b8" font-size="9" font-family="monospace">BEAM</text>
+
+              <!-- Finished False Ceiling Line -->
+              <line x1="0" y1="280" x2="800" y2="280" stroke="#475569" stroke-width="1.5" stroke-dasharray="6 6" />
+              <text x="30" y="275" fill="#64748b" font-size="10" font-family="monospace">FINISHED CEILING LEVEL (+2.800m)</text>
+
+              <!-- Layer 1: Fire Sprinkler Main (RED) -->
+              <g id="svg-layer-sprinkler">
+                <line x1="40" y1="105" x2="760" y2="105" stroke="#ef4444" stroke-width="5" stroke-linecap="round" />
+                <circle cx="160" cy="105" r="4" fill="#ef4444" />
+                <line x1="160" y1="105" x2="160" y2="120" stroke="#ef4444" stroke-width="3" />
+                <circle cx="420" cy="105" r="4" fill="#ef4444" />
+                <line x1="420" y1="105" x2="420" y2="120" stroke="#ef4444" stroke-width="3" />
+                <circle cx="680" cy="105" r="4" fill="#ef4444" />
+                <line x1="680" y1="105" x2="680" y2="120" stroke="#ef4444" stroke-width="3" />
+                <text x="690" y="100" fill="#ef4444" font-size="9" font-family="monospace">DN80 FIRE SPRINKLER (RED)</text>
+              </g>
+
+              <!-- Layer 2: Plumbing Drainage & Vent (GREEN) -->
+              <g id="svg-layer-drain">
+                <path d="M 40 240 L 760 220" stroke="#10b981" stroke-width="6" stroke-linecap="round" />
+                <text x="40" y="255" fill="#10b981" font-size="9" font-family="monospace">DN110 SOIL & WASTE (1:80 SLOPE) (GREEN)</text>
+              </g>
+
+              <!-- Layer 3: Mechanical HVAC Chilled Water Duct (BLUE) -->
+              <g id="svg-layer-duct">
+                <rect x="360" y="140" width="130" height="70" fill="rgba(30, 107, 251, 0.25)" stroke="#1e6bfb" stroke-width="2.5" rx="3" />
+                <line x1="360" y1="140" x2="490" y2="210" stroke="#1e6bfb" stroke-width="1" stroke-dasharray="4 4" />
+                <line x1="360" y1="210" x2="490" y2="140" stroke="#1e6bfb" stroke-width="1" stroke-dasharray="4 4" />
+                <text x="365" y="132" fill="#60a5fa" font-size="10" font-family="monospace" font-weight="bold">900x450 CHW SUPPLY DUCT (BLUE)</text>
+              </g>
+
+              <!-- Layer 4: Electrical Cable Ladder (YELLOW) -->
+              <g id="svg-layer-tray">
+                <path id="path-tray-main" d="M 50 180 H 750" stroke="#f59e0b" stroke-width="6" stroke-linecap="round" />
+                <!-- Cable tray rungs -->
+                <g id="svg-tray-rungs">
+                  <line x1="120" y1="175" x2="120" y2="185" stroke="#fcd34d" stroke-width="3" />
+                  <line x1="200" y1="175" x2="200" y2="185" stroke="#fcd34d" stroke-width="3" />
+                  <line x1="280" y1="175" x2="280" y2="185" stroke="#fcd34d" stroke-width="3" />
+                  <line x1="600" y1="175" x2="600" y2="185" stroke="#fcd34d" stroke-width="3" />
+                  <line x1="680" y1="175" x2="680" y2="185" stroke="#fcd34d" stroke-width="3" />
+                </g>
+                <text x="60" y="170" fill="#f59e0b" font-size="9" font-family="monospace">600mm MV CABLE LADDER (YELLOW)</text>
+              </g>
+
+              <!-- Hard Clash Marker (Collision Point) -->
+              <g id="sandbox-clash-marker" style="cursor: pointer;">
+                <circle cx="425" cy="180" r="18" fill="rgba(239, 68, 68, 0.4)" stroke="#ef4444" stroke-width="2" />
+                <circle cx="425" cy="180" r="6" fill="#ef4444" />
+                <text x="435" y="172" fill="#ffffff" font-size="11" font-family="monospace" font-weight="bold">! CLASH</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Right Side: Sandbox Controls & Clash Status Diagnostics -->
+        <div class="lg:col-span-4 space-y-4">
+          <!-- Layer Toggles -->
+          <div class="p-5 rounded-xl bg-slate-950 border border-slate-800 shadow-xl">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 border-b border-slate-800 pb-2 mb-3">
+              BIM 360 Layer Overlays
+            </h4>
+            <div class="space-y-2.5 text-xs font-mono">
+              <label class="flex items-center justify-between p-2 rounded bg-slate-900/70 border border-slate-800 hover:border-blue-500 cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+                  <span class="text-slate-200">Mechanical HVAC Duct (Blue)</span>
+                </span>
+                <input type="checkbox" id="layer-duct" checked class="rounded border-slate-700 text-blue-600 focus:ring-0">
+              </label>
+
+              <label class="flex items-center justify-between p-2 rounded bg-slate-900/70 border border-slate-800 hover:border-amber-500 cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                  <span class="text-slate-200">Electrical Cable Tray (Yellow)</span>
+                </span>
+                <input type="checkbox" id="layer-tray" checked class="rounded border-slate-700 text-amber-600 focus:ring-0">
+              </label>
+
+              <label class="flex items-center justify-between p-2 rounded bg-slate-900/70 border border-slate-800 hover:border-red-500 cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="text-slate-200">Fire Sprinkler Header (Red)</span>
+                </span>
+                <input type="checkbox" id="layer-sprinkler" checked class="rounded border-slate-700 text-red-600 focus:ring-0">
+              </label>
+
+              <label class="flex items-center justify-between p-2 rounded bg-slate-900/70 border border-slate-800 hover:border-emerald-500 cursor-pointer">
+                <span class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                  <span class="text-slate-200">Drainage & PHE Slope (Green)</span>
+                </span>
+                <input type="checkbox" id="layer-drain" checked class="rounded border-slate-700 text-emerald-600 focus:ring-0">
+              </label>
+            </div>
+          </div>
+
+          <!-- Real-Time Clash Status Diagnostic Box -->
+          <div id="clash-status-box" class="p-4 rounded-xl border border-red-500/50 bg-red-950/40 text-slate-200">
+            <div class="flex items-center gap-2 text-red-400 font-bold mb-1">
+              <span class="w-3 h-3 rounded-full bg-red-500 animate-ping"></span>
+              HARD CLASH DETECTED: Zone 3B Plenum
+            </div>
+            <p class="text-xs text-slate-300">
+              <strong>Conflict:</strong> 900x450mm Chilled Water Supply Duct intersects 600mm Medium Voltage Cable Tray at +3.450m elevation.
+            </p>
+            <div class="mt-2 text-xs font-mono text-red-300">
+              Field Rework Risk: <strong>&#8377;15+ Lakhs</strong> | Schedule Delay: <strong>2 Weeks</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       KEY PROJECT PORTFOLIO SHOWCASE
+       ======================================================================== -->
+  <section id="projects" class="py-16 bg-slate-950/70 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-widest">KEY PROJECT PORTFOLIO</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">High-Impact US & Indian Infrastructure</h2>
+          <p class="text-slate-400 text-sm mt-1">
+            Proven track record spanning US hyperscale data centers, &#8377;4,256 Cr mass housing townships, 67-floor high-rises, and hospitals.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+          <button data-project-filter="all" class="project-filter-btn px-3.5 py-1.5 rounded-lg bg-blue-600 text-white font-semibold transition-all">
+            All Projects
+          </button>
+          <button data-project-filter="us-datacenters" class="project-filter-btn px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-all">
+            USA Data Centers & Aviation
+          </button>
+          <button data-project-filter="townships" class="project-filter-btn px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-all">
+            Township & Govt Mass Housing
+          </button>
+          <button data-project-filter="commercial" class="project-filter-btn px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-all">
+            Commercial & IT Campuses
+          </button>
+          <button data-project-filter="healthcare" class="project-filter-btn px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-all">
+            Healthcare & Public Halls
+          </button>
+        </div>
+      </div>
+
+      <!-- Project Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        <!-- 1. Google Goldeneye Datacenter -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="us-datacenters" data-discipline="mech elec fire">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-blue-400 font-bold">TURNER INTERNATIONAL</span>
+              <span class="bg-blue-950/80 text-blue-300 px-2 py-0.5 rounded border border-blue-800">USA Tier IV</span>
+            </div>
+            <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+              Google Goldeneye Datacenter
+            </h3>
+            <p class="text-xs text-slate-400 mt-1">Mission-Critical Hyperscale Cloud Infrastructure</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Spearheaded pre-construction activities and constructability reviews. Reduced design conflicts by <strong>20%</strong> prior to on-site execution through high-density chilled water and electrical busway clash audits.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400">20% Clash Reduction</span>
+            <button data-open-project="google-datacenter" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Apple Waukee Datacenter -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="us-datacenters" data-discipline="mech elec fire plumb">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-blue-400 font-bold">TURNER INTERNATIONAL</span>
+              <span class="bg-blue-950/80 text-blue-300 px-2 py-0.5 rounded border border-blue-800">USA Mission-Critical</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Apple Waukee Datacenter</h3>
+            <p class="text-xs text-slate-400 mt-1">Waukee, Iowa, USA</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Executed comprehensive quantity takeoffs, vendor proposal vetting (50+ vendors), and rate analyses securing <strong>10% average cost savings</strong> with 100% international code compliance.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-emerald-400">10% Cost Savings</span>
+            <button data-open-project="apple-datacenter" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. CIDCO PMAY Mass Housing Project -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="townships" data-discipline="plumb elec fire mech">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-amber-950/80 text-amber-300 px-2 py-0.5 rounded border border-amber-800">&#8377;4,256 Crores</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">CIDCO PMAY Mass Housing</h3>
+            <p class="text-xs text-slate-400 mt-1">Navi Mumbai &bull; 7 Sites &bull; 21,825 Residents</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Coordinated massive township MEP infrastructure across 7 sectors. Engineered water supply networks, drainage, storm water, sewage treatment plants (STP), and electrical substations with &lt;5% budget variance.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400">21,825 Residents</span>
+            <button data-open-project="cidco-pmay" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. BDD Chawl Redevelopment Skyscraper -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="townships" data-discipline="mech elec plumb fire">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">67-Floor Towers</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">BDD Chawl Mega Redevelopment</h3>
+            <p class="text-xs text-slate-400 mt-1">Mumbai &bull; 20 Rehab Buildings + 67-Fl Sales Towers</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Resolved complex spatial coordination conflicts across high-rise pumping, fire risers, and electrical shafts, preventing <strong>&#8377;15 Lakhs</strong> in potential field rework and zero audit violations.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-emerald-400">&#8377;15L Rework Prevented</span>
+            <button data-open-project="bdd-chawl" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. Memphis International Airport -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="us-datacenters" data-discipline="mech fire elec">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-blue-400 font-bold">TURNER INTERNATIONAL</span>
+              <span class="bg-blue-950/80 text-blue-300 px-2 py-0.5 rounded border border-blue-800">Aviation</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Memphis Airport Modernization</h3>
+            <p class="text-xs text-slate-400 mt-1">Memphis, Tennessee, USA</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Terminal concourse HVAC design validation, smoke evacuation controls, and life-safety systems compliance with FAA and international passenger safety guidelines.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-blue-400">FAA &amp; NFPA Compliance</span>
+            <button data-open-project="memphis-airport" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. TCS Olympus A & B Campuses -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="commercial" data-discipline="mech elec fire">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">15 &amp; 20 Floors</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">TCS Olympus A &amp; B Campuses</h3>
+            <p class="text-xs text-slate-400 mt-1">Hiranandani Estate, Thane, India</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              High-density IT campus MEP packages. Contributed to tender bid formulations totaling over <strong>&#8377;50 Crores</strong> and maintained 100% first-pass design approvals with Revit & AutoCAD.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400">&#8377;50 Cr Tender Bids</span>
+            <button data-open-project="tcs-olympus" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 7. DRFMS Multi-Speciality Hospital -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="healthcare" data-discipline="mech plumb elec fire">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-red-950/80 text-red-300 px-2 py-0.5 rounded border border-red-800">&#8377;170 Crores</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">DRFMS Tertiary Hospital</h3>
+            <p class="text-xs text-slate-400 mt-1">Maharashtra, India</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Critical life-safety, medical gas pipelines (MGPS), cleanroom laminar airflow for operation suites, and precision positive-negative pressure differential HVAC coordination.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-red-400">Medical Gas &amp; HEPA 14</span>
+            <button data-open-project="drfms-hospital" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 8. Hiranandani Solus Commercial Tower -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="commercial" data-discipline="mech elec plumb">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">26 Floors</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Hiranandani Solus Tower</h3>
+            <p class="text-xs text-slate-400 mt-1">Thane, Mumbai MMR, India</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Directed an execution team of 8–10 MEP engineers, reducing installation errors by <strong>18%</strong> and cutting material wastage by <strong>10%</strong> through strict architectural layout adherence.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-emerald-400">18% Error Reduction</span>
+            <button data-open-project="hiranandani-solus" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 9. Shirdi Sai Baba Darshan Queue Complex -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="healthcare" data-discipline="mech fire plumb elec">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">G+3 Complex</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Shirdi Sai Baba Sansthan</h3>
+            <p class="text-xs text-slate-400 mt-1">Darshan Queue Complex (Commercial/Hall)</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Engineered ultra-high capacity fresh air ventilation, massive displacement cooling, and multi-zoned wet sprinkler life-safety systems for thousands of daily assembly occupants.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-blue-400">Mass Assembly HVAC</span>
+            <button data-open-project="shirdi-sansthan" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 10. Bluegrass Business Park & The Edge -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="commercial" data-discipline="mech elec plumb">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-amber-400 font-bold">SANDEEP SHIKRE &amp; ASSOCIATES</span>
+              <span class="bg-amber-950/80 text-amber-300 px-2 py-0.5 rounded border border-amber-800">&#8377;85 Cr Combined</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Bluegrass (&#8377;60 Cr) &amp; The Edge (&#8377;25 Cr)</h3>
+            <p class="text-xs text-slate-400 mt-1">Prime Commercial IT Parks</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Comprehensive MEP coordination, Carrier HAP thermal calculation reviews, energy-efficient chiller piping layouts, and vendor billing measurement verification.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400">&#8377;85 Cr Packages</span>
+            <button data-open-project="bluegrass-edge" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 11. Cleveland Clinic Healthcare Expansion -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="us-datacenters" data-discipline="mech plumb elec">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-blue-400 font-bold">TURNER INTERNATIONAL</span>
+              <span class="bg-blue-950/80 text-blue-300 px-2 py-0.5 rounded border border-blue-800">Healthcare USA</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Cleveland Clinic Expansion</h3>
+            <p class="text-xs text-slate-400 mt-1">Cleveland, Ohio, USA</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Pre-construction technical reviews for medical gas distribution, positive-negative pressure airborne infection suites, and emergency power backup integration.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-red-400">NFPA 99 Healthcare</span>
+            <button data-open-project="cleveland-clinic" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 12. Urban Transit Monorail Stations -->
+        <div class="project-card mep-card-interactive flex flex-col rounded-xl overflow-hidden" data-project-category="commercial" data-discipline="elec fire mech">
+          <div class="p-5 border-b border-slate-800 flex-1">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="text-slate-400 font-bold">URBAN TRANSIT PVT LTD</span>
+              <span class="bg-slate-900 text-slate-300 px-2 py-0.5 rounded border border-slate-700">5 Rail Stations</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Mumbai Monorail Stations</h3>
+            <p class="text-xs text-slate-400 mt-1">Mass Transit Rail Infrastructure</p>
+            <p class="text-slate-300 text-xs mt-3 leading-relaxed">
+              Monitored installation and testing of MEP, firefighting, and traction electrical systems across 5 monorail stations, resulting in <strong>100% Commission of Railway Safety (CRS) compliance</strong>.
+            </p>
+          </div>
+          <div class="px-5 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+            <span class="text-emerald-400">100% CRS Safety</span>
+            <button data-open-project="monorail-transit" class="text-blue-400 hover:text-blue-300 flex items-center gap-1 font-semibold">
+              <span>View Specs</span>
+              <span>&rarr;</span>
+            </button>
           </div>
         </div>
 
@@ -812,179 +843,1039 @@
     </div>
   </section>
 
-
-  <!-- ══════════════════════════════════
-       FOOTER
-  ══════════════════════════════════ -->
-  <footer class="bg-navy py-10">
+  <!-- ========================================================================
+       WORK EXPERIENCE & LEADERSHIP TIMELINE
+       ======================================================================== -->
+  <section id="experience" class="py-16 bg-slate-950 border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-widest">CAREER PROGRESSION</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Work Experience &amp; Milestones</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Chronological record of leadership across global construction consultancies and engineering contractors.
+        </p>
+      </div>
 
-        <!-- Logo -->
-        <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-mech/20 border border-mech/30 flex items-center justify-center">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="10" width="20" height="4" rx="1" fill="currentColor" opacity="0.8"/>
-              <rect x="10" y="2" width="4" height="20" rx="1" fill="currentColor" opacity="0.6"/>
-              <path d="M12 7.5l-1.5 4h3l-1.5 5" stroke="#FFC107" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+      <!-- Timeline Container -->
+      <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+
+        <!-- 1. Turner International (June 2026 – Present) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="mech elec fire">
+          <!-- Timeline Node Icon -->
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-blue-500 flex items-center justify-center text-blue-400 font-mono text-xs font-bold shadow-lg shadow-blue-900/50">
+            01
           </div>
-          <span class="text-white/50 text-sm font-medium">&copy; 2026 <span class="text-white font-semibold">[Your Name]</span>. All rights reserved.</span>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-blue-400 font-semibold text-right w-24">
+            Jun 2026 &mdash; Present
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-blue-400 font-semibold block mb-1">June 2026 &ndash; Present</span>
+                <h3 class="text-xl font-bold text-white">Senior Project Engineer</h3>
+                <div class="text-sm font-semibold text-blue-400">Turner International</div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-blue-950/80 border border-blue-500/40 text-blue-300 font-mono text-xs">
+                US Mission-Critical Projects
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400 font-bold mt-0.5">&bull;</span>
+                <span>Spearheaded pre-construction activities and constructability reviews for mission-critical US projects (including <strong>Google and Apple data centers</strong>), reducing design conflicts by an estimated <strong class="text-blue-400">[20%]</strong> prior to execution.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400 font-bold mt-0.5">&bull;</span>
+                <span>Directed a cross-functional team of <strong>10 engineers</strong>, standardizing project tracking methodologies that improved technical query resolution times by <strong class="text-emerald-400">[15%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400 font-bold mt-0.5">&bull;</span>
+                <span>Evaluated and vetted <strong class="text-amber-400">[50+] vendor proposals</strong> by analyzing technical datasheets and conducting rate analyses, securing an average cost savings of <strong class="text-amber-400">[10%]</strong> without compromising design integrity.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400 font-bold mt-0.5">&bull;</span>
+                <span>Executed comprehensive quantity takeoffs and design validations, ensuring <strong>100% compliance</strong> with strict international standards and client specifications.</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Social -->
-        <div class="flex items-center gap-3">
-          <a href="#" aria-label="LinkedIn"
-            class="flex items-center gap-2 bg-white/8 hover:bg-white/16 border border-white/12 hover:border-orange/40 text-white/60 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            LinkedIn
-          </a>
-          <a href="#" aria-label="Upwork"
-            class="flex items-center gap-2 bg-white/8 hover:bg-white/16 border border-white/12 hover:border-orange/40 text-white/60 hover:text-white text-xs font-medium px-4 py-2 rounded-full transition-all">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.546-1.405 0-2.543-1.14-2.543-2.546V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"/></svg>
-            Upwork
-          </a>
+        <!-- 2. Blue Star (July 2024 – June 2026) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="mech plumb">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-emerald-500 flex items-center justify-center text-emerald-400 font-mono text-xs font-bold shadow-lg shadow-emerald-900/50">
+            02
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-emerald-400 font-semibold text-right w-24">
+            Jul 2024 &mdash; Jun 2026
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-emerald-400 font-semibold block mb-1">July 2024 &ndash; June 2026</span>
+                <h3 class="text-xl font-bold text-white">Assistant Manager &mdash; EMPG</h3>
+                <div class="text-sm font-semibold text-emerald-400">Blue Star</div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 font-mono text-xs">
+                Electro-Mechanical Projects Group
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                <span>Managed a team of <strong>5 designers</strong> across end-to-end MEP system deployments, maintaining a <strong class="text-emerald-400">[95%]</strong> on-time project delivery rate through rigorous milestone tracking.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                <span>Orchestrated material procurement and tracked order amendments utilizing the <strong>SAP MM module</strong>, minimizing supply chain delays by <strong class="text-blue-400">[20%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                <span>Validated MEP designs and scrutinized vendor technical datasheets, mitigating post-installation rework by an estimated <strong class="text-amber-400">[15%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-400 font-bold mt-0.5">&bull;</span>
+                <span>Facilitated stakeholder coordination among clients, consultants, and execution teams, streamlining project workflows and eliminating communication bottlenecks.</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
+        <!-- 3. Sandeep Shikre & Associates - Assistant Senior Engineer (Jan 2024 – July 2024) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="mech elec fire plumb">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-amber-500 flex items-center justify-center text-amber-400 font-mono text-xs font-bold shadow-lg shadow-amber-900/50">
+            03
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-amber-400 font-semibold text-right w-24">
+            Jan 2024 &mdash; Jul 2024
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-amber-400 font-semibold block mb-1">Jan 2024 &ndash; July 2024</span>
+                <h3 class="text-xl font-bold text-white">Assistant Senior Engineer &mdash; MEP</h3>
+                <div class="text-sm font-semibold text-amber-400">Sandeep Shikre and Associates</div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-amber-950/80 border border-amber-500/40 text-amber-300 font-mono text-xs">
+                High-Value Township &amp; High-Rise
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold mt-0.5">&bull;</span>
+                <span>Coordinated MEP service execution across multiple high-value projects, forecasting cost estimates and tracking milestones to maintain budget variances below <strong class="text-amber-400">[5%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold mt-0.5">&bull;</span>
+                <span>Mentored and led a team of <strong>5 Assistant MEP Engineers</strong>, increasing team productivity by <strong class="text-emerald-400">[20%]</strong> through the implementation of structured design review protocols.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold mt-0.5">&bull;</span>
+                <span>Reviewed and approved complex infrastructure, fire fighting, plumbing, HVAC, and electrical calculations, ensuring zero compliance violations during external audits.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-amber-400 font-bold mt-0.5">&bull;</span>
+                <span>Utilized <strong>HAP, PlanSwift, AutoCAD, and Revit</strong> to review technical drawings, resolving spatial coordination conflicts and preventing <strong class="text-emerald-400">[&#8377;15 Lakhs]</strong> in potential field rework.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4. Sandeep Shikre & Associates - Assistant Engineer (April 2023 – Jan 2024) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="mech plumb elec">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">
+            04
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-slate-400 font-semibold text-right w-24">
+            Apr 2023 &mdash; Jan 2024
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-slate-400 font-semibold block mb-1">April 2023 &ndash; Jan 2024</span>
+                <h3 class="text-xl font-bold text-white">Assistant Engineer &mdash; MEP</h3>
+                <div class="text-sm font-semibold text-slate-400">Sandeep Shikre and Associates</div>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Directed an execution team of <strong>8&ndash;10 MEP engineers</strong>, ensuring strict adherence to architectural drawings and reducing installation errors by <strong class="text-blue-400">[18%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Generated accurate BOQs and quantity estimates, optimizing budget forecasting and reducing material wastage by <strong class="text-emerald-400">[10%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Analyzed project data and mechanical system designs to identify spatial conflicts, coordinating delivery timelines to accelerate project phases by <strong class="text-amber-400">[2 weeks]</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5. Sandeep Shikre & Associates - Junior Engineer (Jan 2021 – April 2023) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="mech fire plumb elec">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">
+            05
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-slate-400 font-semibold text-right w-24">
+            Jan 2021 &mdash; Apr 2023
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-slate-400 font-semibold block mb-1">Jan 2021 &ndash; April 2023</span>
+                <h3 class="text-xl font-bold text-white">Junior Engineer &mdash; MEP</h3>
+                <div class="text-sm font-semibold text-slate-400">Sandeep Shikre and Associates</div>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Formulated accurate project cost estimates and BOQs for MEP packages, contributing to successful tender bids totaling over <strong class="text-amber-400">[&#8377;50 Crores]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Evaluated technical drawings and design calculations using AutoCAD, Revit, HAP, and PlanSwift, supporting senior engineers in maintaining a <strong class="text-emerald-400">[100%] first-pass design approval rate</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Collaborated with structural and architectural teams to coordinate mechanical system layouts, ensuring seamless integration across multi-disciplinary designs.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6. Fitech Systems Pvt Ltd - Project Engineer Mechanical (July 2018 – Jan 2021) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="fire plumb mech">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-red-500 flex items-center justify-center text-red-400 font-mono text-xs font-bold shadow-lg shadow-red-900/50">
+            06
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-red-400 font-semibold text-right w-24">
+            Jul 2018 &mdash; Jan 2021
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-red-400 font-semibold block mb-1">July 2018 &ndash; Jan 2021</span>
+                <h3 class="text-xl font-bold text-white">Project Engineer Mechanical</h3>
+                <div class="text-sm font-semibold text-red-400">Fitech Systems Pvt Ltd</div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-red-300 font-mono text-xs">
+                Fire Protection &amp; Plumbing
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold mt-0.5">&bull;</span>
+                <span>Supervised a <strong>12-person technical team</strong> in maintaining fire fighting and plumbing systems across <strong class="text-amber-400">[15+] high-rise properties</strong>, achieving a <strong class="text-emerald-400">[98%] system uptime</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold mt-0.5">&bull;</span>
+                <span>Analyzed design calculations and compiled precise job data, improving the accuracy of final cost estimates by <strong class="text-blue-400">[15%]</strong>.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-red-400 font-bold mt-0.5">&bull;</span>
+                <span>Controlled engineering operations and implemented quality assurance protocols, ensuring all site delivery timelines were met within a <strong class="text-emerald-400">[5%] tolerance</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7. Urban Transit Pvt Ltd - Junior Station Controller (Oct 2017 – July 2018) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="elec fire mech">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">
+            07
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-slate-400 font-semibold text-right w-24">
+            Oct 2017 &mdash; Jul 2018
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-slate-400 font-semibold block mb-1">Oct 2017 &ndash; July 2018</span>
+                <h3 class="text-xl font-bold text-white">Junior Station Controller</h3>
+                <div class="text-sm font-semibold text-slate-400">Urban Transit Pvt Ltd</div>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-slate-300 font-mono text-xs">
+                Monorail Transit Operations
+              </span>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Monitored the installation and testing of MEP, fire fighting, and electrical systems across <strong>[5] monorail stations</strong>, ensuring adherence to strict safety standards.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Managed accurate billing and measurement metrics for installed services, facilitating rapid contractor payment cycles and clear financial reporting.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Executed comprehensive safety inspections and Commission of Railway Safety (CRS) testing, resulting in <strong class="text-emerald-400">[100%] operational safety compliance</strong>.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 8. Fitech Systems Pvt Ltd - Project Engineer Mechanical (Sept 2016 – Oct 2017) -->
+        <div class="relative pl-8 md:pl-10 group" data-discipline="fire plumb mech">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-950 border-2 border-slate-700 flex items-center justify-center text-slate-400 font-mono text-xs font-bold">
+            08
+          </div>
+          <div class="hidden md:block absolute -left-36 top-2 text-xs font-mono text-slate-400 font-semibold text-right w-24">
+            Sep 2016 &mdash; Oct 2017
+          </div>
+
+          <div class="mep-card-interactive p-6 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span class="md:hidden text-xs font-mono text-slate-400 font-semibold block mb-1">Sept 2016 &ndash; Oct 2017</span>
+                <h3 class="text-xl font-bold text-white">Project Engineer Mechanical</h3>
+                <div class="text-sm font-semibold text-slate-400">Fitech Systems Pvt Ltd</div>
+              </div>
+            </div>
+
+            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Reviewed fire fighting and plumbing designs, proactively investigating and resolving drawing interpretation issues to prevent schedule delays.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Evaluated contractor proposals and generated targeted queries, aligning final budgets with original project scopes and resolving all missing information.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-slate-400 font-bold mt-0.5">&bull;</span>
+                <span>Documented extensive requirements from developers, consultants, and local authorities, ensuring all preliminary designs met rigorous local building codes.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       INTERACTIVE BOQ & QUANTITY TAKEOFF ESTIMATOR WIDGET
+       ======================================================================== -->
+  <section id="boq-calculator" class="py-16 bg-blueprint-dark border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          QUANTITY SURVEYING &amp; ESTIMATION TOOL
+        </span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Interactive BOQ Takeoff Estimator</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Demonstrating Bhushan's expertise in Rate Analysis, BOQ Preparation, and SAP MM module procurement forecasting. Simulate preliminary MEP capacities and budgeting below.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-slate-950/90 border border-slate-800 shadow-2xl">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <!-- Input Parameters -->
+          <div class="space-y-5">
+            <div>
+              <label for="boq-facility-type" class="block text-xs font-mono font-bold uppercase text-slate-300 mb-2">
+                1. Select Facility Classification:
+              </label>
+              <select id="boq-facility-type" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-blue-500 font-mono">
+                <option value="datacenter">Mission-Critical Data Center (Google/Apple Tier IV)</option>
+                <option value="township" selected>Mass Housing Township (CIDCO PMAY 21k+ Residents)</option>
+                <option value="commercial">Commercial High-Rise IT Office (TCS Olympus / Solus)</option>
+                <option value="hospital">Tertiary Multi-Speciality Hospital (DRFMS 300 Beds)</option>
+              </select>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label for="boq-area-slider" class="text-xs font-mono font-bold uppercase text-slate-300">
+                  2. Built-Up Area (Gross):
+                </label>
+                <span id="boq-area-val" class="text-sm font-mono text-amber-400 font-bold">150,000 sq.ft</span>
+              </div>
+              <input type="range" id="boq-area-slider" min="20000" max="1000000" step="10000" value="150000" class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-blue-500" />
+              <div class="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
+                <span>20,000 sq.ft</span>
+                <span>500,000 sq.ft</span>
+                <span>1,000,000 sq.ft</span>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-lg bg-slate-900/70 border border-slate-800 text-xs font-mono text-slate-400 space-y-1">
+              <div class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Rate Analysis Confidence: 98%</span>
+              </div>
+              <p class="text-[11px] text-slate-500">
+                Calibrated against NBC 2016, ASHRAE 90.1, NFPA standards and actual tender bid metrics managed by Bhushan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Output Metrics Cards -->
+          <div class="grid grid-cols-2 gap-3.5">
+            <!-- HVAC Metric -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-blue-500/40">
+              <div class="flex items-center gap-1.5 text-xs font-mono text-blue-400 font-semibold mb-1">
+                <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+                <span>HVAC Tonnage</span>
+              </div>
+              <div id="metric-hvac-tr" class="text-2xl font-black font-mono text-white">420 TR</div>
+              <div class="text-[10px] text-slate-400 mt-1">Carrier HAP Peak Load</div>
+            </div>
+
+            <!-- Electrical Load -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-amber-500/40">
+              <div class="flex items-center gap-1.5 text-xs font-mono text-amber-400 font-semibold mb-1">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span>Connected Power</span>
+              </div>
+              <div id="metric-power-kva" class="text-2xl font-black font-mono text-white">1,200 kVA</div>
+              <div class="text-[10px] text-slate-400 mt-1">Transformer / Substation</div>
+            </div>
+
+            <!-- Fire Sprinkler Heads -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-red-500/40">
+              <div class="flex items-center gap-1.5 text-xs font-mono text-red-400 font-semibold mb-1">
+                <span class="w-2 h-2 rounded-full bg-red-500"></span>
+                <span>Sprinkler Heads</span>
+              </div>
+              <div id="metric-sprinkler-heads" class="text-2xl font-black font-mono text-white">1,050 Nos</div>
+              <div class="text-[10px] text-slate-400 mt-1">NFPA 13 Density Grid</div>
+            </div>
+
+            <!-- Estimated BOQ Budget -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-emerald-500/40">
+              <div class="flex items-center gap-1.5 text-xs font-mono text-emerald-400 font-semibold mb-1">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Estimated Budget</span>
+              </div>
+              <div id="metric-estimated-budget" class="text-2xl font-black font-mono text-white">&#8377;8.70 Cr</div>
+              <div class="text-[10px] text-slate-400 mt-1">&lt;5% Budget Variance</div>
+            </div>
+
+            <!-- Copy Takeoff Action Button -->
+            <div class="col-span-2 pt-1">
+              <button id="copy-boq-btn" type="button" class="w-full py-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-amber-400 text-xs font-mono text-slate-200 transition-all flex items-center justify-center gap-2">
+                <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                <span>Copy Preliminary BOQ Estimate Summary</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       SKILLS, SOFTWARE & ACCREDITATION MATRIX
+       ======================================================================== -->
+  <section id="skills" class="py-16 bg-slate-950/60 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-mono text-blue-400 font-bold uppercase tracking-widest">TECHNICAL COMPETENCIES</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Skills, Systems &amp; Software Suite</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Comprehensive inventory of core competencies, engineering software proficiencies, and multi-disciplinary systems.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 1. Core Competencies -->
+        <div class="mep-card-interactive p-6 rounded-xl border-t-2 border-t-blue-500">
+          <div class="flex items-center gap-2 text-blue-400 text-sm font-mono font-bold mb-4">
+            <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+            <span>CORE COMPETENCIES</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">MEP Coordination</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Project Management</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Team Leadership (10-12 Eng.)</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Quantity Surveying (QS)</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Estimation &amp; Rate Analysis</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">BOQ Preparation</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Constructability Review</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Vendor Proposal Vetting</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">QA/QC Site Delivery</span>
+          </div>
+        </div>
+
+        <!-- 2. Technical Systems Expertise -->
+        <div class="mep-card-interactive p-6 rounded-xl border-t-2 border-t-amber-500">
+          <div class="flex items-center gap-2 text-amber-400 text-sm font-mono font-bold mb-4">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            <span>TECHNICAL EXPERTISE</span>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1.5 rounded bg-blue-950/50 border border-blue-800/80 text-xs text-blue-300 font-medium">MEP Systems Integration</span>
+            <span class="px-3 py-1.5 rounded bg-emerald-950/50 border border-emerald-800/80 text-xs text-emerald-300 font-medium">Public Health Engineering (PHE)</span>
+            <span class="px-3 py-1.5 rounded bg-red-950/50 border border-red-800/80 text-xs text-red-300 font-medium">Fire Fighting Systems (NFPA/NBC)</span>
+            <span class="px-3 py-1.5 rounded bg-blue-950/50 border border-blue-800/80 text-xs text-blue-300 font-medium">HVAC (Chilled Water &amp; Ducting)</span>
+            <span class="px-3 py-1.5 rounded bg-amber-950/50 border border-amber-800/80 text-xs text-amber-300 font-medium">Electrical Systems &amp; Substations</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Design Validation &amp; Audits</span>
+            <span class="px-3 py-1.5 rounded bg-emerald-950/50 border border-emerald-800/80 text-xs text-emerald-300 font-medium">STP &amp; Water Harvesting</span>
+            <span class="px-3 py-1.5 rounded bg-red-950/50 border border-red-800/80 text-xs text-red-300 font-medium">Clean Agent Gas Suppression</span>
+            <span class="px-3 py-1.5 rounded bg-slate-900 border border-slate-800 text-xs text-slate-200 font-medium">Commissioning Safety (CRS)</span>
+          </div>
+        </div>
+
+        <!-- 3. Software & Advanced BIM Tools -->
+        <div class="mep-card-interactive p-6 rounded-xl border-t-2 border-t-emerald-500">
+          <div class="flex items-center gap-2 text-emerald-400 text-sm font-mono font-bold mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>SOFTWARE &amp; TOOLS</span>
+          </div>
+          <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">AutoCAD</span>
+              <span class="text-blue-400">Expert</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Revit (BIM)</span>
+              <span class="text-blue-400">Expert</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">BIM 360</span>
+              <span class="text-amber-400">Advanced</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">SAP MM Module</span>
+              <span class="text-emerald-400">Advanced</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Carrier HAP</span>
+              <span class="text-blue-400">Expert</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">PlanSwift</span>
+              <span class="text-amber-400">Expert</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Bluebeam Revu</span>
+              <span class="text-blue-400">Advanced</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Autodesk ACC</span>
+              <span class="text-amber-400">Advanced</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Procore</span>
+              <span class="text-emerald-400">Proficient</span>
+            </div>
+            <div class="p-2.5 rounded bg-slate-900 border border-slate-800 flex items-center justify-between">
+              <span class="text-white font-semibold">Aconex</span>
+              <span class="text-slate-300">Proficient</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       EDUCATION & ACCREDITATIONS
+       ======================================================================== -->
+  <section class="py-16 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+        <!-- Education Card -->
+        <div class="mep-card-interactive p-6 rounded-xl">
+          <div class="flex items-center gap-3 border-b border-slate-800 pb-4 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-blue-950/80 border border-blue-500/40 flex items-center justify-center text-blue-400 font-bold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Education &amp; Academics</h3>
+              <p class="text-xs font-mono text-slate-400">Formal Mechanical Engineering Foundations</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="text-base font-bold text-white">Bachelor of Engineering (B.E.)</h4>
+                  <p class="text-xs text-blue-400 font-medium">Mechanical Engineering &bull; Mumbai University</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-mono text-slate-400">2015</span>
+                  <span class="block text-xs font-mono text-emerald-400 font-bold">58.38%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="text-base font-bold text-white">Higher Secondary Certificate (H.S.C)</h4>
+                  <p class="text-xs text-slate-400 font-medium">Maharashtra State Board</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-mono text-slate-400">2011</span>
+                  <span class="block text-xs font-mono text-emerald-400 font-bold">69.00%</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div class="flex justify-between items-start">
+                <div>
+                  <h4 class="text-base font-bold text-white">Secondary School Certificate (S.S.C)</h4>
+                  <p class="text-xs text-slate-400 font-medium">Maharashtra State Board</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs font-mono text-slate-400">2009</span>
+                  <span class="block text-xs font-mono text-emerald-400 font-bold">84.00%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certifications Card -->
+        <div class="mep-card-interactive p-6 rounded-xl">
+          <div class="flex items-center gap-3 border-b border-slate-800 pb-4 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-white">Professional Certifications</h3>
+              <p class="text-xs font-mono text-slate-400">Chartered &amp; Green Building Accreditations</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-amber-500/40">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-amber-400 font-bold">&#127963;</span>
+                    <h4 class="text-base font-bold text-white">Chartered Mechanical Engineer</h4>
+                  </div>
+                  <p class="text-xs text-amber-300/90 mt-0.5">The Institution of Engineers (India) &mdash; IEI</p>
+                  <p class="text-[11px] text-slate-400 mt-1">Recognized statutory Chartered Engineer license for peer reviews and design certifications.</p>
+                </div>
+                <span class="text-xs font-mono text-amber-400 font-bold px-2 py-0.5 bg-amber-950/80 rounded border border-amber-800">2022</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-emerald-500/40">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-emerald-400 font-bold">&#127807;</span>
+                    <h4 class="text-base font-bold text-white">IGBC Accredited Professional (IGBC AP)</h4>
+                  </div>
+                  <p class="text-xs text-emerald-300/90 mt-0.5">Indian Green Building Council</p>
+                  <p class="text-[11px] text-slate-400 mt-1">Expertise in Net Zero water, rainwater harvesting, energy conservation and green townships.</p>
+                </div>
+                <span class="text-xs font-mono text-emerald-400 font-bold px-2 py-0.5 bg-emerald-950/80 rounded border border-emerald-800">2026</span>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-lg bg-slate-900/80 border border-blue-500/40">
+              <div class="flex justify-between items-start">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-blue-400 font-bold">&#128295;</span>
+                    <h4 class="text-base font-bold text-white">M.E.P Design and Drafting Specialist</h4>
+                  </div>
+                  <p class="text-xs text-blue-300/90 mt-0.5">Amnear Engineers</p>
+                  <p class="text-[11px] text-slate-400 mt-1">Comprehensive training in HVAC hydronics, electrical layouts, plumbing hydraulics and fire code drafting.</p>
+                </div>
+                <span class="text-xs font-mono text-blue-400 font-bold px-2 py-0.5 bg-blue-950/80 rounded border border-blue-800">2020 &ndash; 2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CONTACT HUB & PROJECT INQUIRY TERMINAL
+       ======================================================================== -->
+  <section id="contact" class="py-16 bg-blueprint-dark">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          GET IN TOUCH
+        </span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Direct Engineering Contact Hub</h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Available for senior MEP engineering consultations, mission-critical pre-construction reviews, and leadership roles.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+        <!-- Contact Details Card -->
+        <div class="md:col-span-5 p-6 rounded-2xl bg-slate-950/90 border border-slate-800 shadow-2xl flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg font-bold text-white mb-4">Contact Information</h3>
+            <div class="space-y-4 text-xs font-mono text-slate-300">
+              <!-- Email -->
+              <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-500 mb-1 flex items-center justify-between">
+                  <span>EMAIL ADDRESS:</span>
+                  <button id="copy-email-btn" class="text-blue-400 hover:text-blue-300 font-mono text-[10px]">Copy</button>
+                </div>
+                <a href="mailto:bhushanp49@gmail.com" class="text-white font-semibold hover:text-blue-400 transition-colors">
+                  bhushanp49@gmail.com
+                </a>
+              </div>
+
+              <!-- Phone -->
+              <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-500 mb-1 flex items-center justify-between">
+                  <span>PHONE / WHATSAPP:</span>
+                  <button id="copy-phone-btn" class="text-emerald-400 hover:text-emerald-300 font-mono text-[10px]">Copy</button>
+                </div>
+                <a href="tel:8928213665" class="text-white font-semibold hover:text-emerald-400 transition-colors">
+                  +91 8928213665
+                </a>
+              </div>
+
+              <!-- Location -->
+              <div class="p-3 rounded-lg bg-slate-900 border border-slate-800">
+                <div class="text-slate-500 mb-1">RESIDENTIAL ADDRESS:</div>
+                <div class="text-slate-200 leading-relaxed font-sans text-xs">
+                  Neel Kunj Plot No. 1&amp;2 Flat No. 301, Sector-4,<br />
+                  New Panvel, Maharashtra &mdash; 410206
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Buttons -->
+          <div class="mt-6 pt-4 border-t border-slate-800 space-y-2">
+            <button class="print-resume-btn w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-bold transition-all flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+              <span>Download Official Resume (PDF)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Direct Message Form -->
+        <div class="md:col-span-7 p-6 rounded-2xl bg-slate-950/90 border border-slate-800 shadow-2xl">
+          <h3 class="text-lg font-bold text-white mb-1">Send a Direct Message</h3>
+          <p class="text-slate-400 text-xs mb-4">Inquire regarding MEP constructability reviews, BOQs, or project execution.</p>
+
+          <form id="mep-contact-form" class="space-y-4">
+            <div>
+              <label for="contact-name" class="block text-xs font-mono uppercase text-slate-400 mb-1">Your Name / Organization</label>
+              <input type="text" id="contact-name" required placeholder="e.g. John Doe, Turner Construction" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-blue-500">
+            </div>
+
+            <div>
+              <label for="contact-email" class="block text-xs font-mono uppercase text-slate-400 mb-1">Your Email Address</label>
+              <input type="email" id="contact-email" required placeholder="name@company.com" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-blue-500">
+            </div>
+
+            <div>
+              <label for="contact-project-type" class="block text-xs font-mono uppercase text-slate-400 mb-1">Inquiry Type</label>
+              <select id="contact-project-type" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-xs text-white focus:outline-none focus:border-blue-500">
+                <option value="Mission-Critical Data Center Pre-Con">Mission-Critical Data Center Pre-Con</option>
+                <option value="Township / High-Rise MEP Coordination">Township / High-Rise MEP Coordination</option>
+                <option value="BOQ Estimation & Quantity Takeoffs">BOQ Estimation &amp; Quantity Takeoffs</option>
+                <option value="Full-Time Leadership Opportunity">Senior Engineering Opportunity</option>
+                <option value="General Professional Collaboration">General Consultation</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="contact-message" class="block text-xs font-mono uppercase text-slate-400 mb-1">Message / Project Scope</label>
+              <textarea id="contact-message" rows="4" required placeholder="Please outline your project scope, location, timeline, and requirements..." class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3.5 py-2 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-blue-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-bold transition-all shadow-lg shadow-emerald-950 flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>Dispatch Message to Bhushan</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-10 text-xs font-mono text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="w-7 h-7 rounded bg-slate-900 border border-slate-700 flex items-center justify-center font-bold text-blue-400 text-xs">
+          BP
+        </span>
+        <div>
+          <span class="text-white font-bold">BHUSHAN ARVIND PATIL</span>
+          <span class="block text-slate-500 text-[10px]">Chartered Mechanical Engineer (IEI) &bull; IGBC-AP</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4 text-slate-400">
+        <a href="#hero" class="hover:text-blue-400 transition-colors">Back to Top &uarr;</a>
+        <span>&bull;</span>
+        <a href="mailto:bhushanp49@gmail.com" class="hover:text-white transition-colors">bhushanp49@gmail.com</a>
+        <span>&bull;</span>
+        <span>+91 8928213665</span>
+      </div>
+
+      <div class="text-slate-500 text-[10px]">
+        Hosted on GitHub Pages &bull; MEP Standards Compliant
       </div>
     </div>
   </footer>
 
+  <!-- ========================================================================
+       PROJECT DEEP-DIVE MODAL (Hidden by default)
+       ======================================================================== -->
+  <div id="project-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm"></div>
+    <div class="relative w-full max-w-2xl bg-slate-950 border border-slate-700 rounded-2xl shadow-2xl p-6 overflow-hidden max-h-[90vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="flex items-start justify-between border-b border-slate-800 pb-4">
+        <div>
+          <div id="modal-discipline-tags" class="flex flex-wrap gap-1.5 mb-2"></div>
+          <h3 id="modal-title" class="text-2xl font-bold text-white">Project Title</h3>
+          <div id="modal-location" class="text-xs font-mono text-blue-400 mt-0.5">Location</div>
+        </div>
+        <button id="modal-close-btn" class="text-slate-400 hover:text-white text-2xl font-bold p-1">&times;</button>
+      </div>
 
-  <!-- ══════════════════════════════════
-       JAVASCRIPT
-  ══════════════════════════════════ -->
-  <script>
-    /* ── Navbar scroll ── */
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    }, { passive: true });
+      <!-- Modal Body -->
+      <div class="py-4 space-y-4 overflow-y-auto pr-2">
+        <div class="grid grid-cols-2 gap-3 text-xs font-mono">
+          <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">ROLE HELD:</span>
+            <span id="modal-role" class="text-slate-200 font-semibold">Engineer</span>
+          </div>
+          <div class="p-2.5 rounded bg-slate-900 border border-slate-800">
+            <span class="text-slate-500 block text-[10px]">PROJECT SCALE / VALUE:</span>
+            <span id="modal-value" class="text-amber-400 font-semibold">&#8377;0 Cr</span>
+          </div>
+        </div>
 
-    /* ── Mobile menu ── */
-    const menuBtn    = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const iconOpen   = document.getElementById('icon-open');
-    const iconClose  = document.getElementById('icon-close');
-    menuBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('open');
-      iconOpen.classList.toggle('hidden', open);
-      iconClose.classList.toggle('hidden', !open);
-    });
-    document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
-      mobileMenu.classList.remove('open');
-      iconOpen.classList.remove('hidden');
-      iconClose.classList.add('hidden');
-    }));
+        <div class="p-3 rounded-lg bg-blue-950/40 border border-blue-800/60 text-xs font-mono text-blue-300">
+          <span class="font-bold">METRICS &amp; IMPACT: </span>
+          <span id="modal-metrics">Metrics</span>
+        </div>
 
-    /* ═══ GALLERY CAROUSEL ═══ */
-    const track  = document.getElementById('gtrack');
-    const dots   = document.querySelectorAll('.gdot');
-    const btnP   = document.getElementById('gprev');
-    const btnN   = document.getElementById('gnext');
-    const cards  = track.querySelectorAll('.gallery-card');
-    let   current = 0;
-    let   timer;
-    let   isDragging = false;
-    let   dragStart  = 0;
-    let   dragScrollStart = 0;
+        <div>
+          <h4 class="text-xs font-mono font-bold uppercase text-slate-400 mb-1">Executive Summary</h4>
+          <p id="modal-description" class="text-xs text-slate-300 leading-relaxed"></p>
+        </div>
 
-    function cardW() {
-      const c = cards[0];
-      return c ? c.offsetWidth + 20 : 460; /* width + gap */
-    }
-    function goTo(idx) {
-      current = Math.max(0, Math.min(idx, cards.length - 1));
-      track.scrollTo({ left: current * cardW(), behavior: 'smooth' });
-      dots.forEach((d, i) => {
-        d.classList.toggle('active', i === current);
-      });
-    }
-    function nextSlide() {
-      goTo(current >= cards.length - 1 ? 0 : current + 1);
-    }
-    function startTimer() { timer = setInterval(nextSlide, 4000); }
-    function stopTimer()  { clearInterval(timer); }
+        <div>
+          <h4 class="text-xs font-mono font-bold uppercase text-slate-400 mb-2">Technical Scope &amp; Engineering Solutions</h4>
+          <ul id="modal-tasks" class="space-y-2"></ul>
+        </div>
+      </div>
 
-    btnN.addEventListener('click', () => { stopTimer(); goTo(current + 1); startTimer(); });
-    btnP.addEventListener('click', () => { stopTimer(); goTo(current - 1); startTimer(); });
-    dots.forEach(d => d.addEventListener('click', () => {
-      stopTimer(); goTo(+d.dataset.idx); startTimer();
-    }));
+      <!-- Modal Footer -->
+      <div class="border-t border-slate-800 pt-3 flex justify-end">
+        <button onclick="closeProjectModal()" class="px-4 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">
+          Close Inspector
+        </button>
+      </div>
+    </div>
+  </div>
 
-    /* Pause on hover */
-    track.addEventListener('mouseenter', stopTimer);
-    track.addEventListener('mouseleave', startTimer);
+  <!-- ========================================================================
+       PRINTABLE RESUME VIEW (Visible only during Window Print / PDF export)
+       ======================================================================== -->
+  <div class="print-resume-container hidden">
+    <div class="header-section text-center pb-3 border-b-2 border-slate-900 mb-4">
+      <h1 class="text-2xl font-bold text-slate-900 uppercase tracking-wide">Bhushan Arvind Patil</h1>
+      <div class="contact-bar text-xs text-slate-700 mt-1 space-x-2">
+        <span>bhushanp49@gmail.com</span>
+        <span>&bull;</span>
+        <span>+91 8928213665</span>
+        <span>&bull;</span>
+        <span>New Panvel, Maharashtra 410206</span>
+      </div>
+      <div class="text-xs font-bold text-blue-800 mt-1 uppercase">
+        Chartered Mechanical Engineer (IEI) &bull; IGBC Accredited Professional (IGBC AP)
+      </div>
+    </div>
 
-    /* Drag to scroll */
-    track.addEventListener('mousedown', e => {
-      isDragging    = true;
-      dragStart     = e.pageX;
-      dragScrollStart = track.scrollLeft;
-      track.classList.add('dragging');
-    });
-    window.addEventListener('mousemove', e => {
-      if (!isDragging) return;
-      const dx = e.pageX - dragStart;
-      track.scrollLeft = dragScrollStart - dx;
-    });
-    window.addEventListener('mouseup', () => {
-      if (!isDragging) return;
-      isDragging = false;
-      track.classList.remove('dragging');
-      current = Math.round(track.scrollLeft / cardW());
-      goTo(current);
-      startTimer();
-    });
+    <!-- Summary -->
+    <section>
+      <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Professional Summary</h2>
+      <p class="text-xs text-slate-800 leading-relaxed text-justify">
+        IGBC-AP Certified and Chartered Mechanical Engineer with over a decade of progressive experience managing diverse portfolios of US and Indian MEP projects, including mission-critical data centers and multi-billion-rupee township developments. Proven expertise in leading cross-functional teams, executing constructability reviews, and driving pre-construction activities to ensure seamless, high-quality project delivery. Highly proficient in advanced industry software, including Revit, BIM 360, and AutoCAD, with a strong track record of optimizing designs, managing complex stakeholder relationships, and executing technical solutions within stringent budget parameters.
+      </p>
+    </section>
 
-    /* Update dot on manual scroll (touch) */
-    track.addEventListener('scrollend', () => {
-      current = Math.round(track.scrollLeft / cardW());
-      dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    });
-    track.addEventListener('touchend', () => {
-      setTimeout(() => {
-        current = Math.round(track.scrollLeft / cardW());
-        dots.forEach((d, i) => d.classList.toggle('active', i === current));
-        startTimer();
-      }, 300);
-    });
-    track.addEventListener('touchstart', stopTimer, { passive: true });
+    <!-- Skills -->
+    <section class="mt-3">
+      <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Skills &amp; Competencies</h2>
+      <div class="text-xs text-slate-800 space-y-1">
+        <p><strong>Core Competencies:</strong> MEP Coordination, Project Management, Team Leadership, Quantity Surveying, Estimation, Bill of Quantities (BOQ) Preparation, Constructability Review.</p>
+        <p><strong>Technical Expertise:</strong> MEP Systems, Public Health Engineering (PHE), Fire Fighting Systems, HVAC, Electrical Systems, Design Validation, Rate Analysis.</p>
+        <p><strong>Software &amp; Tools:</strong> AutoCAD, Revit, BIM 360, SAP MM Module, HAP, PlanSwift, Bluebeam, Autodesk Construction Cloud, Procore, Aconex.</p>
+      </div>
+    </section>
 
-    startTimer();
+    <!-- Experience -->
+    <section class="mt-3">
+      <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Work Experience</h2>
 
-    /* ── Scroll reveal ── */
-    const reveals = document.querySelectorAll('.reveal');
-    const ro = new IntersectionObserver(entries => {
-      entries.forEach((e, idx) => {
-        if (e.isIntersecting) {
-          const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal:not(.visible)'));
-          const delay = siblings.indexOf(e.target) * 90;
-          setTimeout(() => e.target.classList.add('visible'), delay);
-          ro.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.10 });
-    reveals.forEach(el => ro.observe(el));
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Turner International &mdash; Senior Project Engineer</span>
+          <span>June 2026 &ndash; Present</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Spearheaded pre-construction activities and constructability reviews for mission-critical US projects (including Google and Apple data centers), reducing design conflicts by an estimated [20%] prior to execution.</li>
+          <li>Directed a cross-functional team of 10 engineers, standardizing project tracking methodologies that improved technical query resolution times by [15%].</li>
+          <li>Evaluated and vetted [50+] vendor proposals by analyzing technical datasheets and conducting rate analyses, securing an average cost savings of [10%] without compromising design integrity.</li>
+          <li>Executed comprehensive quantity takeoffs and design validations, ensuring 100% compliance with strict international standards and client specifications.</li>
+        </ul>
+      </div>
 
-    /* ── Active nav on scroll ── */
-    const sects  = document.querySelectorAll('section[id]');
-    const nlinks = document.querySelectorAll('.nav-link');
-    const ioNav  = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.id;
-          nlinks.forEach(l => {
-            const match = l.getAttribute('href') === `#${id}` ||
-                          (id === 'expertise' && l.getAttribute('href') === '#expertise');
-            l.classList.toggle('text-white', match);
-            l.classList.toggle('bg-white/12', match);
-          });
-        }
-      });
-    }, { rootMargin: '-40% 0px -50% 0px' });
-    sects.forEach(s => ioNav.observe(s));
-  </script>
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Blue Star &mdash; Assistant Manager - EMPG</span>
+          <span>July 2024 &ndash; June 2026</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Managed a team of 5 designers across end-to-end MEP system deployments, maintaining a [95%] on-time project delivery rate through rigorous milestone tracking.</li>
+          <li>Orchestrated material procurement and tracked order amendments utilizing the SAP MM module, minimizing supply chain delays by [20%].</li>
+          <li>Validated MEP designs and scrutinized vendor technical datasheets, mitigating post-installation rework by an estimated [15%].</li>
+          <li>Facilitated stakeholder coordination among clients, consultants, and execution teams, streamlining project workflows and eliminating communication bottlenecks.</li>
+        </ul>
+      </div>
 
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Sandeep Shikre and Associates &mdash; Assistant Senior Engineer - MEP</span>
+          <span>January 2024 &ndash; July 2024</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Coordinated MEP service execution across multiple high-value projects, forecasting cost estimates and tracking milestones to maintain budget variances below [5%].</li>
+          <li>Mentored and led a team of 5 Assistant MEP Engineers, increasing team productivity by [20%] through the implementation of structured design review protocols.</li>
+          <li>Reviewed and approved complex infrastructure, fire fighting, plumbing, HVAC, and electrical calculations, ensuring zero compliance violations during external audits.</li>
+          <li>Utilized HAP, PlanSwift, AutoCAD, and Revit to review technical drawings, resolving spatial coordination conflicts and preventing [&#8377;15 Lakhs] in potential field rework.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Sandeep Shikre and Associates &mdash; Assistant Engineer - MEP</span>
+          <span>April 2023 &ndash; January 2024</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Directed an execution team of 8&ndash;10 MEP engineers, ensuring strict adherence to architectural drawings and reducing installation errors by [18%].</li>
+          <li>Generated accurate BOQs and quantity estimates, optimizing budget forecasting and reducing material wastage by [10%].</li>
+          <li>Analyzed project data and mechanical system designs to identify spatial conflicts, coordinating delivery timelines to accelerate project phases by [2 weeks].</li>
+        </ul>
+      </div>
+
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Sandeep Shikre and Associates &mdash; Junior Engineer - MEP</span>
+          <span>January 2021 &ndash; April 2023</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Formulated accurate project cost estimates and BOQs for MEP packages, contributing to successful tender bids totaling over [&#8377;50 Crores].</li>
+          <li>Evaluated technical drawings and design calculations using AutoCAD, Revit, HAP, and PlanSwift, supporting senior engineers in maintaining a [100%] first-pass design approval rate.</li>
+          <li>Collaborated with structural and architectural teams to coordinate mechanical system layouts, ensuring seamless integration across multi-disciplinary designs.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Fitech Systems Pvt Ltd &mdash; Project Engineer Mechanical</span>
+          <span>July 2018 &ndash; January 2021</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Supervised a 12-person technical team in maintaining fire fighting and plumbing systems across [15+] high-rise properties, achieving a [98%] system uptime.</li>
+          <li>Analyzed design calculations and compiled precise job data, improving the accuracy of final cost estimates by [15%].</li>
+          <li>Controlled engineering operations and implemented quality assurance protocols, ensuring all site delivery timelines were met within a [5%] tolerance.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Urban Transit Pvt Ltd &mdash; Junior Station Controller</span>
+          <span>October 2017 &ndash; July 2018</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Monitored installation and testing of MEP, fire fighting, and electrical systems across [5] monorail stations, ensuring adherence to strict safety standards.</li>
+          <li>Managed accurate billing and measurement metrics for installed services, facilitating rapid contractor payment cycles.</li>
+          <li>Executed comprehensive safety inspections and Commission of Railway Safety (CRS) testing, resulting in [100%] operational safety compliance.</li>
+        </ul>
+      </div>
+
+      <div class="experience-block mb-2">
+        <div class="flex justify-between items-baseline text-xs font-bold text-slate-900">
+          <span>Fitech Systems Pvt Ltd &mdash; Project Engineer Mechanical</span>
+          <span>September 2016 &ndash; October 2017</span>
+        </div>
+        <ul class="list-disc pl-4 text-xs text-slate-800 space-y-0.5 mt-0.5">
+          <li>Reviewed fire fighting and plumbing designs, proactively investigating and resolving drawing interpretation issues to prevent schedule delays.</li>
+          <li>Evaluated contractor proposals and generated targeted queries, aligning final budgets with original scopes.</li>
+          <li>Documented requirements from developers, consultants, and local authorities, ensuring designs met local building codes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Key Project Portfolio -->
+    <section class="mt-3">
+      <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Key Project Portfolio</h2>
+      <div class="text-xs text-slate-800 space-y-1">
+        <p><strong>USA Datacenters &amp; Aviation:</strong> Memphis Airport, Cleveland Clinic, Google Goldeneye Datacenter, Apple Waukee Datacenter.</p>
+        <p><strong>Government &amp; Township:</strong> CIDCO PMAY Mass Housing Project (&#8377;4,256 Cr; 7 sites, approx. 21,825 residents), BDD Chawl Redevelopment (20 rehab buildings up to 24 floors; 67-floor sales towers).</p>
+        <p><strong>Commercial &amp; IT Centers:</strong> TCS Olympus A &amp; B at Hiranandani Estate (15 &amp; 20 floors), Hiranandani Solus (26 floors), Bluegrass Business Park (&#8377;60 Cr), The Edge (&#8377;25 Cr).</p>
+        <p><strong>Healthcare &amp; Public Facilities:</strong> DRFMS Hospital (&#8377;170 Cr), Shirdi Sai Baba Sansthan Darshan Queue Complex (G+3 Commercial/Public Hall).</p>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="mt-3">
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Education</h2>
+          <div class="text-xs text-slate-800 space-y-0.5">
+            <p><strong>Bachelor of Engineering (B.E.) Mechanical</strong> &mdash; Mumbai University (2015) | 58.38%</p>
+            <p><strong>H.S.C</strong> &mdash; Maharashtra State Board (2011) | 69.00%</p>
+            <p><strong>S.S.C</strong> &mdash; Maharashtra State Board (2009) | 84.00%</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-sm font-bold border-b border-slate-300 pb-1 mb-1.5 text-blue-900 uppercase">Certifications</h2>
+          <div class="text-xs text-slate-800 space-y-0.5">
+            <p>&bull; <strong>IGBC Accredited Professional (IGBC AP)</strong> (2026)</p>
+            <p>&bull; <strong>Chartered Mechanical Engineer</strong> &mdash; IEI (2022)</p>
+            <p>&bull; <strong>M.E.P Design and Drafting</strong> &mdash; Amnear Engineers (2020&ndash;2021)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript Application Entrypoint -->
+  <script src="js/mep-app.js"></script>
 </body>
 </html>
